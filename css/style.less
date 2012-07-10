@@ -1,0 +1,671 @@
+// Заливка блоков белым цветом
+@fill_block_color: #ffffff;
+// Высота главного меню
+@menu_height: 45px;
+// Ширина сайдбара
+@sidebar_width: 175px;
+// Ширина страницы
+@page_width: 980px;
+
+// Высота заголовка превьюшки
+@game_item_head_heigth: 20px;
+// Высота всей превьюшки
+@game_item_height: 260px;
+// Ширина превьюшек
+@short_item_width: 180px;
+// Висота картинки в превью
+@short_img_height: 120px;
+// line-height у превьюшек игр
+@preview_line_height: 1.5em;
+// Количество строк описания для вывода
+@short_descr_lines: 4;
+// Высота блока с кратким описанием
+@short_descr_height: @preview_line_height;
+
+html, body {font-family: 'Play', sans-serif;}
+body { background-image: url("img/bit-tile-blue.png"); }
+
+a {
+    text-decoration: underline;
+    color:#1073AE;
+    border-bottom: 1px solid #c3e5fa;
+    &:hover {
+        color: #28a2eb;
+        border-bottom: 1px solid #e2f3fc;
+    }
+}
+
+// Зеленый блок со скругленными углами
+.green-block {
+    border-radius: 10px;
+    border-width: 4px;
+    border-image-source: url("img/block-green.png");
+    border-image-slice: 4 fill;
+    border-width: 4px;
+    -moz-border-image: url("img/block-green.png") 4 repeat;
+    -webkit-border-image: url("img/block-green.png") 4 repeat;
+    -o-border-image: url("img/block-green.png") 4 repeat;
+}
+
+
+// Синий блок с закруглением вверху только
+.blue-head-block {
+    font-family: 'Press Start 2P';
+    font-size: 10px;
+    border-width: 4px;
+    border-image-source: url("img/block-head.png");
+    border-image-slice: 4 fill;
+    -moz-border-image: url("img/block-head.png") 4 repeat;
+    -webkit-border-image: url("img/block-head.png") 4 repeat;
+    -o-border-image: url("img/block-head.png") 4 repeat;
+    padding: 5px;
+    line-height: 1.3em;
+    border-radius: 15px;
+    color: #ffffff;
+}
+
+
+// Белый блок
+.white-block {
+    border-radius: 10px;
+    border-width: 4px;
+    border-image-source: url("img/block-white.png");
+    border-image-slice: 4 fill;
+    border-width: 4px;
+    -moz-border-image: url("img/block-white.png") 4 repeat;
+    -webkit-border-image: url("img/block-white.png") 4 repeat;
+    -o-border-image: url("img/block-white.png") 4 repeat;
+}
+
+.center-block {
+    width: @page_width;
+    min-width: @page_width;
+    margin: 0 auto;
+}
+
+.clear-both {
+    clear: both;
+}
+
+// Главный контейнер в котором находится все
+#main-container {
+    position:relative;
+    min-height:100%;
+    height:auto !important;
+    height:100%;
+    color: #646464;
+    text-align: justify;
+    .empty {
+        height:100px;
+        float: left;
+        width: 100%;
+    }
+}
+
+// Хедер
+#header {
+    height: 230px;
+    width: 100%;
+    background-color: #00262f;
+
+}
+
+// Внутренний хедер для задания картинки на фон
+#wide-header {
+    background-image: url("img/header.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    width: 100%;
+    height: 100%;
+    min-width: @page_width;
+
+}
+
+// Ограниченый размерами хедер
+#fixed-header {
+    height: 100%;
+    .center-block;
+    color: #ffffff;
+    a { border: none; }
+
+}
+
+// Блок с главным меню
+#menu {
+    height: @menu_height;
+    background: #bcbcbc; /* Old browsers */
+    background: -moz-linear-gradient(top,  #bcbcbc 0%, #bababa 29%, #b4b4b4 43%, #b2b2b2 44%, #b1b1b1 47%, #a9a9a9 56%, #a3a3a3 72%, #a2a2a2 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bcbcbc), color-stop(29%,#bababa), color-stop(43%,#b4b4b4), color-stop(44%,#b2b2b2), color-stop(47%,#b1b1b1), color-stop(56%,#a9a9a9), color-stop(72%,#a3a3a3), color-stop(100%,#a2a2a2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #bcbcbc 0%,#bababa 29%,#b4b4b4 43%,#b2b2b2 44%,#b1b1b1 47%,#a9a9a9 56%,#a3a3a3 72%,#a2a2a2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #bcbcbc 0%,#bababa 29%,#b4b4b4 43%,#b2b2b2 44%,#b1b1b1 47%,#a9a9a9 56%,#a3a3a3 72%,#a2a2a2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #bcbcbc 0%,#bababa 29%,#b4b4b4 43%,#b2b2b2 44%,#b1b1b1 47%,#a9a9a9 56%,#a3a3a3 72%,#a2a2a2 100%); /* IE10+ */
+    background: linear-gradient(top,  #bcbcbc 0%,#bababa 29%,#b4b4b4 43%,#b2b2b2 44%,#b1b1b1 47%,#a9a9a9 56%,#a3a3a3 72%,#a2a2a2 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcbcbc', endColorstr='#a2a2a2',GradientType=0 ); /* IE6-9 */
+    border: 2px solid #000000;
+}
+
+// Фиксированая часть меню
+#fixed-menu {
+    .center-block;
+    height: 100%;
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+
+// Средняя часть сайта (контент фиксированого размера)
+#fixed-content {
+    .center-block;
+    height: 100%;
+
+}
+
+
+/*   ===   Сайдбар   ===   */
+// Левый сайдбар
+#sidebar-left {
+    width: @sidebar_width;
+    float: left;
+
+}
+
+// Боковое меню с жанрами
+.genre-menu {
+    width: @sidebar_width - 10px;
+}
+
+
+/*   ===   Подвал сайта   ===   */
+// Футер
+#footer {
+    position:relative;
+    margin-top:-100px;
+    height:100px;
+    clear: both;
+    float: left;
+    width:100%;
+    background-image: url("img/footer.png");
+}
+
+// Фиксированая часть футера
+#fixed-footer {
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    p {
+        font-weight: bold;
+        padding-top: 40px;
+    }
+}
+
+// Блок с непосредственным контентом
+#main-content {
+    padding: 0 0 0 10px;
+    float: left;
+    width: @page_width - @sidebar_width - 10px;
+}
+
+
+// Блок с контентом без заголовка
+.block-content {
+    margin-top: -2px;
+    padding: 5px;
+    border: 2px solid #000000;
+    background-color: @fill_block_color;
+    min-height: 50px;
+
+}
+
+// Весь блок с контентом и заголовком
+.complete-block {
+    margin: 10px 0 10px 0;
+
+}
+
+
+/* ======================================== Главное меню ============================================================ */
+#main-menu {
+    float: left;
+    ul{
+        list-style:none;
+        position:absolute;
+        left:-9999px; /* Скрываем за экраном, когда не нужно (данный метод лучше, чем display:none;) */
+        opacity:0; /* Устанавливаем начальное состояние прозрачности */
+        z-index: 1;
+
+        li{
+            padding-top:1px; /* Вводим отступ между li чтобы создать иллюзию разделенных пунктов меню */
+            float:none;
+            background-color: #ffffff;
+            height: 25px;
+            min-width: 50px;
+            a {
+                color: #333;
+            }
+            &:hover {
+
+            }
+        }
+
+        a{
+            white-space:nowrap; /* Останавливаем перенос текста и создаем многострочный выпадающий пункт */
+            font-size: 12px;
+            padding: 0 !important;
+            display:block;
+        }
+
+        div.submenu-content {
+            border-width: 4px;
+            border-image-source: url("img/block-white.png");
+            border-image-slice: 4 fill;
+            border-width: 4px;
+            position: relative;
+            z-index: 0;
+            margin-top: -2px;
+            -moz-border-image: url("img/block-white.png") 4 repeat;
+            -webkit-border-image: url("img/block-white.png") 4 repeat;
+            -o-border-image: url("img/block-white.png") 4 repeat;
+        }
+
+        div.menu-triangle {
+            z-index: 1;
+            position: relative;
+            height: 15px;
+            &:before{
+                content: "";
+                position: absolute;
+                z-index: 1000;
+                bottom: 1px;
+                left: 20%;
+                border-bottom: 8px solid #000;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 0;
+                border-top-color: #000;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                z-index: 1000;
+                bottom: -1px;
+                left: 20%;
+                border-bottom: 8px solid #fff;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 0;
+            }
+        }
+    }
+
+    li {
+        vertical-align: middle;
+        background-image: url("img/menu-divide.png");
+        background-position: left;
+        background-repeat: no-repeat;
+        line-height: 24px;
+        padding-left: 10px;
+        padding-right: 10px;
+        float: left;
+        position: relative;
+        display: block;
+        border-bottom: 5px solid transparent;
+        height: @menu_height - 4px;
+        a {
+            border: none;
+            height: 35px;
+            text-decoration: none;
+            color: #ffffff;
+            display: block;
+            padding: 10px 0 0 0;
+        }
+        &:hover {
+            border-bottom: 5px solid #333;
+            ul{ /* Выводим выпадающий пункт при наведении курсора */
+                left:0; /* Приносим его обратно на экран, когда нужно */
+                opacity:1; /* Делаем непрозрачным */
+                li:hover{ /* Устанавливаем стили для выпадающих пунктов, когда курсор наводится на конкретный пункт */
+                    a {
+                        color: #ffffff;
+                    }
+                    border: 0;
+                    background:#333;
+                }
+            }
+            a {
+                color: #fc9000;
+                text-shadow: 0px 0px 6px rgba(252,255,255,1);
+            }
+            li {
+                background: #ffffff;
+                border: 0;
+                a {
+                    color: #333 ;
+                }
+            }
+        }
+        &:first-child {
+            background-image: none;
+        }
+    }
+}
+/* --------------------------------------------------- Главное меню ------------------------------------------------- */
+
+/* =========================================== Форма поиска в главном меню ========================================== */
+.search-bar {
+    float: right;
+    height: @menu_height;
+    fieldset {
+        margin-top: 7px;
+        height: 25px;
+        width: 155px;
+        .white-block;
+    }
+    input {
+        border: 0;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 25px;
+        font-size: 14px;
+    }
+    .search-input{
+        width: 120px;
+        padding: 0 0 0 5px ;
+    }
+    .btn-search {
+        width: 25px;
+        background-color: #ffffff;
+        background: url("img/sprite.png") no-repeat;
+        text-indent: -9999px;
+        background-position: 3px 1px;
+
+        &:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        &:active {
+            background: url("img/sprite.png") no-repeat;
+            background-position: -65px 4px;
+        }
+    }
+}
+/* ----------------------------------- Форма поиска в главном меню -------------------------------------------------- */
+
+
+.game-item {
+    width: @short_item_width;
+    height: @game_item_height;
+    border-radius: 10px 10px 0 0;
+    opacity: 0.9;
+
+    h3 {
+        font-size: 12px;
+        line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: white;
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            border-bottom: none;
+            &:hover {
+                text-shadow: 0px 0px 6px rgba(255,255,255,0.8);
+            }
+            &:active {
+                text-shadow: 0px 0px 6px rgba(255,255,255,0.1);
+            }
+        }
+        &:hover {
+            text-shadow: 0px 0px 6px rgba(255,255,255,0.8);
+        }
+        &:active {
+            text-shadow: 0px 0px 6px rgba(255,255,255,0.1);
+        }
+    }
+
+    &:hover {
+        opacity: 1;
+        -webkit-box-shadow: 0px 0px 2px 2px rgba(00, 00, 00, 0.4);
+        box-shadow: 0px 0px 2px 2px rgba(00, 00, 00, 0.2);
+    }
+}
+
+.head-orange {
+    height: @game_item_head_heigth;
+    border-radius: 10px;
+    border-width: 4px;
+    border-image-source: url("img/block-orange.png");
+    border-image-slice: 4 fill;
+    border-width: 4px;
+    -moz-border-image: url("img/block-orange.png") 4 repeat;
+    -webkit-border-image: url("img/block-orange.png") 4 repeat;
+    -o-border-image: url("img/block-orange.png") 4 repeat;
+}
+.item-content {
+    height: @game_item_height - @game_item_head_heigth - 10px;
+    margin-top: -2px;
+    border: 2px solid #482400;
+
+}
+
+.item-image {
+    max-width: @short_item_width;
+    height: @short_img_height;
+    overflow: hidden;
+}
+
+// Блок с коротким превью игры
+.item-decription {
+    line-height: 1.5em;
+    font-size: 10px;
+    padding: 10px 5px;
+    height: @game_item_height - @game_item_head_heigth - @short_img_height - 55px;
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: @short_descr_height * @short_descr_lines;
+    }
+}
+
+.item-genre {
+    float: left;
+    font-size: 12px;
+
+     margin-left: 5px;
+    color: #482400;
+    a {
+        @lnk_color: #1073ae;
+        color: @lnk_color;
+        &:hover {
+            color: lighten(@lnk_color, 30%);
+        }
+    }
+}
+.item-info {
+    padding-top: 9px;
+    float: left;
+    width: 100%;
+}
+
+.item-rating-icon {
+    background: url("img/sprite.png");
+    background-position: -50px 1px;
+    height: 10px;
+    width: 10px;
+    float: left;
+}
+
+.item-rating {
+    width: 35px;
+
+
+//    background-size: 101px 91px;
+    float: right;
+    font-size: 12px;
+
+    color: #205917;
+    cursor: help;
+    p {
+        padding-left: 5px;
+        float: left;
+    }
+}
+
+.game-grid {
+    margin: 0 auto;
+    td {
+        padding: 7px;
+    }
+}
+
+/* =================================================== Боковое меню ================================================= */
+.sidebar-menu {
+    li {
+//        padding: 0 10px 0 10px;
+        padding: 3px 10px 3px 10px;
+    }
+    a {
+
+        line-height: 24px;
+        text-decoration: none;
+        color: #333;
+        border-bottom: 1px solid #ccc;
+//        display: block;
+        font-size: 14px;
+
+        &:hover {
+//            background-color: #569536;
+
+
+            color: orange;
+            border-bottom: 1px solid orange;
+
+//            font-weight: bold;
+//            font-size: 18px;
+//            text-shadow: 1px 1px rgba(230,230,230,1);
+//            border-left: 4px solid orange;
+//            text-decoration: underline;
+
+
+        }
+    }
+}
+/* --------------------------------------------------- Боковое меню ------------------------------------------------- */
+
+/* ===================================================== Одна запись ================================================ */
+
+// блок с одной игрой
+.single-game {
+
+    line-height: 1.5em;
+    .block-content {
+        padding: 15px;
+    }
+    .slide-border {
+        border: none;
+    }
+
+}
+
+#raiting_star {
+
+    height: 49px;
+}
+#raiting {
+    padding-right: 10px;
+    position:relative;
+    height:25px;
+    cursor:pointer;
+    max-width:297px;
+    float:left;
+} /* Блок рейтинга*/
+#raiting_blank, #raiting_votes, #raiting_hover {
+    height:24px;
+    position:absolute
+}
+/* "Чистые" звездочки */
+#raiting_blank {
+    background:url(img/sprite.png) 0 -101px;
+    width:297px;
+}
+/*  Закрашенные звездочки */
+#raiting_votes {
+    background:url(img/sprite.png) 0 -73px
+}
+/*  звездочки при голосовании */
+#raiting_hover {
+    background:url(img/sprite.png) 0 -73px;
+    display:none
+}
+#raiting_info {
+    height: 24px;
+
+    h5 {
+        font-size: 12px;
+    }
+}
+#raiting_info img{
+    vertical-align:middle;
+    margin:0 5px;
+    display:none
+}
+
+#game-info {
+    padding-top: 10px;
+
+}
+#game-review {
+    margin-top: 20px;
+    p {
+        text-indent: 20px;
+    }
+}
+#game-download {
+    margin-top: 10px;
+    .green-block{
+        float: left;
+        padding: 0px 10px 0px 10px;
+    }
+    .download-lnk {
+        color: #ffffff;
+        border: none;
+        padding-left: 5px;
+        &:hover {
+            text-shadow: 0px 0px 6px rgba(252,255,255,1);
+            border: none;
+        }
+    }
+}
+.icon-download {
+    vertical-align: middle;
+    height: 24px;
+    width: 22px;
+    display: block;
+    float: left;
+    background: url("img/sprite.png") no-repeat;
+    background-position: -93px 1px;
+}
+.simple-slider {
+    #slides {
+        top:0;
+        left:0;
+        .slide-border {
+            border-image-source: none;
+            border: 2px solid black;
+            padding: 0;
+            margin: 0;
+        }
+        .slide {
+            width: 760px;
+        }
+        .slides_container {
+            width: 760px;
+            .slide {
+                height: 450px;
+            }
+        }
+    }
+}
+/* ------------------------------------------------------Одна запись ------------------------------------------------ */
