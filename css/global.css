@@ -182,11 +182,16 @@ body {
 	height:50px;
 	padding:5px 20px 0 20px;
 	background:#000;
-	background:rgba(0,0,0,.7);
+	background:rgba(0,0,0,0.7);
 	width:680px;
 	font-size:1.5em;
-	line-height:1.5;
+	line-height:2em;
 	color:#fff;
 	border-top:1px solid #000;
 	text-shadow:none;
+    text-align: left;
+}
+.caption a {
+    text-decoration: none;
+    color: white;    
 }

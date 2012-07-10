@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo $theme_dir; ?>/css/reset.css">
     <link rel="stylesheet" href="<?php echo $theme_dir; ?>/css/global.css">
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/less.js"></script>
+<!--    <script type="text/javascript" src="--><?php //echo $theme_dir; ?><!--/js/less.js"></script>-->
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/slides.js"></script>
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/main.js"></script>
     <?php wp_head(); ?>
