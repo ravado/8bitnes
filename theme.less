@@ -612,41 +612,38 @@ a {
     display:none
 }
 
-#game-info {
+.gameInfo {
     padding-top: 10px;
 
 }
-#game-review {
+.gameReview {
     margin-top: 20px;
-    p {
-        text-indent: 20px;
-    }
+    text-indent: 20px;
 }
-#game-download {
+.gameDownload {
     margin-top: 10px;
-    .green-block{
-        float: left;
-        padding: 0px 10px 0px 10px;
-    }
-    .download-lnk {
+    a {
         color: #ffffff;
-        border: none;
-        padding-left: 5px;
+        .green-block;
+        padding: 0 5px;
+        line-height: 1.5em;
+        font-size: 14px;
+        display:inline-block;
         &:hover {
-            text-shadow: 0px 0px 6px rgba(252,255,255,1);
-            border: none;
+            text-shadow: 0px 0px 6px rgba(252,255,255,0.8);
+        }
+        .icon-download {
+            vertical-align: middle;
+            height: 24px;
+            width: 22px;
+            display: inline-block;
+            margin-right: 5px;
+            background: url("img/sprite.png") no-repeat;
+            background-position: -280px 2px;
         }
     }
 }
-.icon-download {
-    vertical-align: middle;
-    height: 24px;
-    width: 22px;
-    display: block;
-    float: left;
-    background: url("img/sprite.png") no-repeat;
-    background-position: -93px 1px;
-}
+
 .simple-slider {
     #slides {
         top:0;

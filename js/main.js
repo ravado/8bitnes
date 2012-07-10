@@ -37,10 +37,11 @@ $(document).ready(function() {
     var star_widht = total_raiting*30 ;
     $('#raiting_votes').width(star_widht);
     $('#raiting_info h5').append(total_raiting);
-    he_voted = $.cookies.get('article'+id_arc); // проверяем есть ли кука?
+//    he_voted = $.cookies.get('article'+id_arc); // проверяем есть ли кука?
     he_voted = null;
     if(he_voted == null){
         $('#raiting').hover(function() {
+
                 $('#raiting_votes, #raiting_hover').toggle();
             },
             function() {

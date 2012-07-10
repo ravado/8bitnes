@@ -86,28 +86,28 @@
         <div class="random-games complete-block">
             <div class="blue-head-block">Случайные игры</div>
             <div class="block-content">
-<table class="game-grid">
-<thead></thead>
-<tbody>
-<tr>
-    <?php $counter = 1; ?>
-    <?php query_posts('posts_per_page=8 & orderby=rand'); ?>
-    <?php while (have_posts()) : the_post(); ?>
-    <td>
-        <div class="game-item">
-            <div class="head-orange">
-                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-            </div>
-            <div class="item-content">
-                <div class="item-image">
-                    <a href="<?php the_permalink(); ?>">
-                        <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
-                    </a>
-                </div>
-                <div class="item-decription">
-                    <p><?php contentPart('rev'); ?></p>
-                </div>
-                <div class="item-info">
+                <table class="game-grid">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <?php $counter = 1; ?>
+                        <?php query_posts('posts_per_page=8 & orderby=rand'); ?>
+                        <?php while (have_posts()) : the_post(); ?>
+                        <td>
+                            <div class="game-item">
+                                <div class="head-orange">
+                                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                </div>
+                                <div class="item-content">
+                                    <div class="item-image">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
+                                        </a>
+                                    </div>
+                                    <div class="item-decription">
+                                        <p><?php contentPart('rev'); ?></p>
+                                    </div>
+                                    <div class="item-info">
                                             <span class="item-genre">
                                                 <p>Жанр:
                                                     <?php $categories = get_the_category(); ?>
@@ -118,32 +118,30 @@
                                                 <span class="item-rating-icon"></span>
                                                 <p>8.8</p>
                                             </span>
-                </div>
-                <div class="clear-both"></div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <?php
+                        if($counter == 4) {
+                            echo '</tr><tr>';
+                        }
+                        $counter++;
+                        ?>
+                        <?php endwhile; ?>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </td>
-    <?php
-    if($counter == 4) {
-        echo '</tr><tr>';
-    }
-    $counter++;
-    ?>
-    <?php endwhile; ?>
-</tr>
-</tbody>
-</table>
+            <div style="width:100%;">Все игры
+            </div>
+            <div class="clear-both"></div>
+        </div>
+        <div class="clear-both"></div>
+    </div>
+    <div class="empty"></div>
+    <div class="clear-both"></div>
 </div>
-</div>
-     <div style="width:100%;">Все игры
-</div>
-<div class="clear-both"></div>
-</div>
-<div class="clear-both"></div>
-</div>
-<div class="empty"></div>
-<div class="clear-both"></div>
-</div>
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
