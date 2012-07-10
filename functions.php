@@ -1,5 +1,26 @@
 <?php
 
+add_action('wp_ajax_change_rating', 'change_post_rating');
+add_action('wp_ajax_nopriv_change_rating', 'change_post_rating');
+
+function change_post_rating() {
+    $post_id = $_POST['post_id'];
+    $new_mark = $_POST['mark'];
+    global $wpdb;
+    $newtable = $wpdb->get_results( "SELECT post_rating FROM $wpdb->posts WHERE ID=".$post_id);
+    $rating = $newtable[0]->post_rating;
+    $new_rating = ($rating + $new_mark) / 2;
+    $wpdb->query("UPDATE $wpdb->posts SET post_rating = " .$new_rating ." WHERE ID =".$post_id);
+    $temp['rating'] = $new_rating;
+    echo json_encode($temp);
+    die();
+}
+
+
+
+
+
+
     // Переопределение вывода главного меню
     class mainMenuWalker extends Walker_Nav_Menu {
         function start_lvl(&$output, $depth) {
@@ -84,5 +105,15 @@
         echo $content;
     }
 
+
+    function getPostRating() {
+        global $wpdb;
+        $rating = 0;
+        $newtable = $wpdb->get_results( "SELECT post_rating FROM $wpdb->posts WHERE ID=".get_the_ID());
+        foreach($newtable as $val) {
+            $rating = $val->post_rating;
+        }
+        return $rating;
+    }
 
 ?>

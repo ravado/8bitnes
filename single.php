@@ -5,6 +5,7 @@
         <?php get_sidebar(); ?>
         <div id="main-content">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
             <div class="single-game complete-block">
                 <div class="blue-head-block"><?php the_title() ?></div>
                 <div class="block-content">
@@ -27,7 +28,11 @@
                     </div>
                         <?php endif; ?>
                     <div id="raiting_star">
-                        <div id="raiting_info">  <img src="<?php echo get_template_directory_uri() ?>/img/load.gif" /> <h5>Рейтинг: </h5></div>
+                        <div id="raiting_info">
+                            <input type="hidden" id="post_id" value="<?php echo get_the_ID() ?>">
+                            <img src="<?php echo get_template_directory_uri() ?>/img/load.gif" />
+                            <h5>Рейтинг: <span><?php echo getPostRating(); ?></span></h5>
+                        </div>
                         <div id="raiting">
                             <div id="raiting_blank"></div>
                             <div id="raiting_hover"></div>
