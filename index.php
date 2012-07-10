@@ -1,26 +1,24 @@
 <?php get_header(); ?>
 <div id="content">
-<!--  Путь к директории с темой  -->
     <?php $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
         <?php get_sidebar(); ?>
         <div id="main-content">
             <div id="container">
                 <div id="example">
-                    <img src="<?php echo $theme_dir; ?>/img/new-ribbon.png" width="112" height="112" alt="New Ribbon" id="ribbon">
-
                     <div id="slides">
                         <div class="slide-border">
-
                             <div class="slides_container">
-                                <?php query_posts('cat=10'); ?>
+                                <?php query_posts('posts_per_page=5 & orderby=rand'); ?>
                                 <?php while (have_posts()) : the_post(); ?>
                                 <div class="slide">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" >
-                                        <img src="<?php echo getTopGames(3); ?>" width="700" height="380" alt="Slide 1">
+                                        <img src="<?php contentPart('url'); ?>" width="700" height="380" alt="<?php contentPart('alt'); ?>">
                                     </a>
-                                    <div class="caption" style="bottom:0">
-                                        <p><?php the_title(); ?></p>
+                                    <div class="caption">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <p><?php the_title(); ?></p>
+                                        </a>
                                     </div>
                                 </div>
                                 <?php endwhile;?>
@@ -38,25 +36,29 @@
                 <table class="game-grid">
                     <thead></thead>
                     <tbody>
-                        <?php $popular_game = getPopularGames('popular',8); for( $i = 0; $i < 2;  $i++ ): ?>
                         <tr>
-                            <?php for($k = $i*4; $k < 4+$i*4; $k++): ?>
+                            <?php $counter = 1; ?>
+                            <?php query_posts('posts_per_page=8 & orderby=rand'); ?>
+                            <?php while (have_posts()) : the_post(); ?>
                             <td>
                                 <div class="game-item">
                                     <div class="head-orange">
-                                        <h3><a href="<?php echo $popular_game[$k]['permalink']; ?>"><?php echo $popular_game[$k]['title']; ?></a></h3>
+                                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                     </div>
                                     <div class="item-content">
                                         <div class="item-image">
-                                            <img src="<?php echo $popular_game[$k]['img_url']; ?>" alt="" width="176">
+                                            <a href="<?php the_permalink(); ?>">
+                                                <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
+                                            </a>
                                         </div>
                                         <div class="item-decription">
-                                            <p><?php echo $popular_game[$k]['review']; ?></p>
+                                            <p><?php contentPart('rev'); ?></p>
                                         </div>
                                         <div class="item-info">
                                             <span class="item-genre">
                                                 <p>Жанр:
-                                                    <a href="<?php echo $popular_game[$k]['cat_lnk']; ?>"><?php echo $popular_game[$k]['cat_name']; ?></a>
+                                                    <?php $categories = get_the_category(); ?>
+                                                    <a href="<?php echo get_category_link($categories[0]->cat_ID); ?>"><?php echo $categories[0]->name; ?></a>
                                                 </p>
                                             </span>
                                             <span class="item-rating">
@@ -68,9 +70,15 @@
                                     </div>
                                 </div>
                             </td>
-                            <?php endfor; ?>
+                            <?php
+                                if($counter == 4) {
+                                    echo '</tr><tr>';
+                                }
+                                $counter++;
+                            ?>
+                            <?php endwhile; ?>
                         </tr>
-                        <?php endfor; ?>
+
                     </tbody>
                 </table>
             </div>
@@ -81,39 +89,48 @@
 <table class="game-grid">
 <thead></thead>
 <tbody>
-<?php $popular_game = getPopularGames('random',8); for( $i = 0; $i < 2;  $i++ ): ?>
 <tr>
-    <?php for($k = $i*4; $k < 4+$i*4; $k++): ?>
+    <?php $counter = 1; ?>
+    <?php query_posts('posts_per_page=8 & orderby=rand'); ?>
+    <?php while (have_posts()) : the_post(); ?>
     <td>
         <div class="game-item">
             <div class="head-orange">
-                <h3><a href="<?php echo $popular_game[$k]['permalink']; ?>"><?php echo $popular_game[$k]['title']; ?></a></h3>
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             </div>
             <div class="item-content">
                 <div class="item-image">
-                    <img src="<?php echo $popular_game[$k]['img_url']; ?>" alt="" width="176">
+                    <a href="<?php the_permalink(); ?>">
+                        <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
+                    </a>
                 </div>
                 <div class="item-decription">
-                    <p><?php echo $popular_game[$k]['review']; ?></p>
+                    <p><?php contentPart('rev'); ?></p>
                 </div>
                 <div class="item-info">
-                    <span class="item-genre">
-                        <p>Жанр:
-                            <a href="<?php echo $popular_game[$k]['cat_lnk']; ?>"><?php echo $popular_game[$k]['cat_name']; ?></a>
-                        </p>
-                    </span>
-                    <span class="item-rating">
-                        <span class="item-rating-icon"></span>
-                        <p>8.8</p>
-                    </span>
+                                            <span class="item-genre">
+                                                <p>Жанр:
+                                                    <?php $categories = get_the_category(); ?>
+                                                    <a href="<?php echo get_category_link($categories[0]->cat_ID); ?>"><?php echo $categories[0]->name; ?></a>
+                                                </p>
+                                            </span>
+                                            <span class="item-rating">
+                                                <span class="item-rating-icon"></span>
+                                                <p>8.8</p>
+                                            </span>
                 </div>
                 <div class="clear-both"></div>
             </div>
         </div>
     </td>
-    <?php endfor; ?>
+    <?php
+    if($counter == 4) {
+        echo '</tr><tr>';
+    }
+    $counter++;
+    ?>
+    <?php endwhile; ?>
 </tr>
-    <?php endfor; ?>
 </tbody>
 </table>
 </div>

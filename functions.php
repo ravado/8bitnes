@@ -32,73 +32,33 @@
         ));
     }
 
-    // Выбираем из поста первое изображение
-    function catch_that_image() {
-        global $post, $posts;
-        $first_img = '';
-        ob_start();
-        ob_end_clean();
-        $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-        $first_img = $matches [1] [0];
-        if(empty($first_img)) {
-            $first_img = "/images/default.jpg"; // Ссылка на изображение-заглушку, если в посте оно не найдено
-        }
-        return $first_img;
-    }
-
-    // Выбираем топ игр (заголовок, ссылку, первую картинку в посте)
-    function getTopGames($count) {
+    // Вывод информации о первой картинке найденной в посте
+    // $kind = 'url' - ссылка на изображение, 'alt' - ее альтернативная подпись
+    function contentPart($kind) {
         global $post;
+        $img = '';
         $theme_url = get_bloginfo('template_directory');
-        /*$top_games = array();
-
-        $top_posts = get_posts('numberposts=' .$count .' & orderby=rand');
-
-        foreach($top_posts as $post) {
-            $temp = array();
-            $temp['permalink'] = get_post_permalink($post->ID);
-            $temp['title'] = $post->post_title;
-            preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-            $temp['img_url'] = $matches[1];
-            if(empty($temp['img_url'])) {
-                $temp['img_url'] = $theme_url ."/img/img-not-found.jpeg";
+        if($kind == 'url') {
+            preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $url);
+            $img = $url[1];
+            if(empty($img)) {
+                $img = $theme_url ."/img/img-not-found.jpeg";
             }
-            array_push($top_games, $temp);
-        }*/
-        preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-        $img_url = $matches[1];
-        if(empty($img_url)) {
-            $img_url = $theme_url ."/img/img-not-found.jpeg";
-        }
-        return $img_url;
-    }
-
-    // Выбираем игры для превьюшек (картинка, краткое описание, заголовок, категория, рейтинг)
-    // $count - количество необходимых записей
-    // $kind  - по каким параметрам искать ('random','popular')
-    function getPopularGames($kind, $count) {
-
-        $popular_games = array();
-        $theme_url = get_bloginfo('template_directory');
-        $popular_posts = get_posts('numberposts=' .$count .' & orderby=rand');
-        foreach($popular_posts as $post) {
-            $temp = array();
-            $post_categories = get_the_category($post->ID);
-            $temp['cat_lnk'] = get_category_link($post_categories[0]->cat_ID);
-            $temp['cat_name'] = $post_categories[0]->cat_name;
-            $temp['permalink'] = get_post_permalink($post->ID);
-            $temp['title'] = $post->post_title;
-            preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $images);
-            $temp['img_url'] = $images[1];
-            if(empty($temp['img_url'])) {
-                $temp['img_url'] = $theme_url ."/img/img-not-found.jpeg";
+        } elseif ($kind == 'alt') {
+            preg_match('/<img.+alt=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $alt);
+            $img = $alt[1];
+            if(empty($img)) {
+                $img = 'game slide';
             }
+        } elseif ('rev') {
             preg_match('|<div class="gameReview">(.*)</div>|isU', $post->post_content, $reviews);
-            $temp['review'] = strip_tags(mb_substr($reviews[1],0,100)).'...';
-
-            array_push($popular_games, $temp);
+            $img = strip_tags(mb_substr($reviews[1],0,100)).'...';
+            if(empty($img)) {
+                $img = 'Нет описания :(';
+            }
         }
-
-        return $popular_games;
+        echo $img;
     }
+
+
 ?>
