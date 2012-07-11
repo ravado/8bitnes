@@ -1,5 +1,8 @@
 <?php
 
+    // Добавляем в тему поддержку форматов записей
+    add_theme_support( 'post-formats', array( 'image' ) );
+
     // Добавление екшенов для работы аякс запроса
     add_action('wp_ajax_change_rating', 'change_post_rating');
     add_action('wp_ajax_nopriv_change_rating', 'change_post_rating');
