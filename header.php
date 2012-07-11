@@ -10,7 +10,10 @@
     <link rel="stylesheet/less" href="<?php echo $theme_dir; ?>/style.css">
     <link rel="stylesheet" href="<?php echo $theme_dir; ?>/css/reset.css">
     <link rel="stylesheet" href="<?php echo $theme_dir; ?>/css/global.css">
+<!--    <link rel="stylesheet" href="--><?php //echo $theme_dir; ?><!--/css/bootstrap.css">-->
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/jquery.cookies.js"></script>
+<!--    <script type="text/javascript" src="--><?php //echo $theme_dir; ?><!--/js/bootstrap.js"></script>-->
 <!--    <script type="text/javascript" src="--><?php //echo $theme_dir; ?><!--/js/less.js"></script>-->
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/slides.js"></script>
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/main.js"></script>

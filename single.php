@@ -5,7 +5,8 @@
         <?php get_sidebar(); ?>
         <div id="main-content">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
+            <?php increaseViews() ?>
+            <input type="hidden" id="post_id" value="<?php echo get_the_ID() ?>">
             <div class="single-game complete-block">
                 <div class="blue-head-block"><?php the_title() ?></div>
                 <div class="block-content">
@@ -29,14 +30,16 @@
                         <?php endif; ?>
                     <div id="raiting_star">
                         <div id="raiting_info">
-                            <input type="hidden" id="post_id" value="<?php echo get_the_ID() ?>">
                             <img src="<?php echo get_template_directory_uri() ?>/img/load.gif" />
-                            <h5>Рейтинг: <span><?php echo getPostRating(); ?></span></h5>
+                            <h5>Рейтинг:
+                                <span class="rating-value"><?php echo getPostRating(); ?> </span>
+                                <span class="already-voted" style="display: none;">Вы уже голосовали!</span>
+                            </h5>
                         </div>
                         <div id="raiting">
-                            <div id="raiting_blank"></div>
-                            <div id="raiting_hover"></div>
-                            <div id="raiting_votes"></div>
+                            <div id="raiting_blank" data-original-title="Пользователь создавшый тест"></div>
+                            <div id="raiting_hover" data-original-title="Пользователь создавшый тест"></div>
+                            <div id="raiting_votes" data-original-title="Пользователь создавшый тест"></div>
                         </div>
                     </div>
                     <?php postWithoutImages(); ?>

@@ -3,7 +3,7 @@
 $(function(){
     $('#slides').slides({
         preload: true,
-        preloadImage: 'img/loading.gif',
+        preloadImage: '../img/loading.gif',
         play: 5000,
         pause: 2500,
         hoverPause: true,
@@ -28,18 +28,19 @@ $(function(){
     });
 });
 
+function setRatingBar() {
+    var total_raiting, star_widht;
+    total_raiting = $("#raiting_info h5 .rating-value").text(); // итоговый ретинг
+    star_widht = Math.ceil(total_raiting*30);
+    $('#raiting_votes').width(star_widht);
+}
+
 $(document).ready(function() {
 
-
-
-
-    total_raiting = $("#raiting_info h5 span").text(); // итоговый ретинг
-    id_arc = 55; // id статьи
-    var star_widht = Math.ceil(total_raiting*30);
-    $('#raiting_votes').width(star_widht);
-//    he_voted = $.cookies.get('article'+id_arc); // проверяем есть ли кука?
-    he_voted = null;
-    if(he_voted == null){
+    // Выставление правильного колчества сердечек рейтинга
+    setRatingBar();
+    // Проверка куков голосовал ли человек за этот пост уже
+    if(($.cookies.get('article'+$("#post_id").val())) == null){
         $('#raiting').hover(function() {
                 $('#raiting_votes, #raiting_hover').toggle();
             },
@@ -63,31 +64,20 @@ $(document).ready(function() {
                 mark: user_votes
             }, function(data) {
                 $('#raiting').css('cursor','default');
-                $("#raiting_info h5 span").html(data.rating);
+                $("#raiting_info h5 .rating-value").html(data.rating);
                 $('#raiting_votes').width(Math.ceil((data.rating*30)));
                 $('#raiting_votes').show();
                 $('#raiting_info h5, #raiting_info img').toggle();
-//                    $.cookies.set('article'+id_arc, 123, {hoursToLive: 1}); // создаем куку
+                $.cookies.set('article'+$("#post_id").val(), 123, {expires: 7}); // создаем куку
                 $("#raiting").unbind();
                 $('#raiting_hover').hide();
             },"json");
-            /*$('#raiting_info h5, #raiting_info img').toggle();
-            $.get(
-                "raiting.php",
-                {id_arc: id_arc, user_votes: user_votes},
-                function(data){
-                    $('#raiting').css('cursor','default');
-                    $("#raiting_info h5").html(data);
-                    $('#raiting_votes').width((total_raiting + user_votes)*30/2);
-                    $('#raiting_info h5, #raiting_info img').toggle();
-//                    $.cookies.set('article'+id_arc, 123, {hoursToLive: 1}); // создаем куку
-                    $("#raiting").unbind();
-                    $('#raiting_hover').hide();
-                }
-            )*/
         });
     }
     else {
+        $("#raiting").live('click', function() {
+            $("#raiting_info h5 .already-voted").fadeIn(500).delay(2000).fadeOut(1000);
+        });
         console.log('already voted');
     }
 });
