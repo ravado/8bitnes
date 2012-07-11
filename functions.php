@@ -7,11 +7,13 @@ function change_post_rating() {
     $post_id = $_POST['post_id'];
     $new_mark = $_POST['mark'];
     global $wpdb;
-    $newtable = $wpdb->get_results( "SELECT post_rating FROM $wpdb->posts WHERE ID=".$post_id);
+    $newtable = $wpdb->get_results( "SELECT post_rating, votes_count FROM $wpdb->posts WHERE ID=".$post_id);
     $rating = $newtable[0]->post_rating;
-    $new_rating = ($rating + $new_mark) / 2;
-    $wpdb->query("UPDATE $wpdb->posts SET post_rating = " .$new_rating ." WHERE ID =".$post_id);
-    $temp['rating'] = $new_rating;
+    $votes_count = $newtable[0]->votes_count;
+    $new_rating = round(($votes_count * $rating + $new_mark) / ($votes_count + 1), 3);
+    $wpdb->query("UPDATE $wpdb->posts SET post_rating = " .$new_rating ." , votes_count = " .($votes_count + 1) ." WHERE ID =".$post_id);
+    $temp['rating'] = round($new_rating,1);
+    $temp['votes_count'] = $votes_count;
     echo json_encode($temp);
     die();
 }
@@ -108,11 +110,8 @@ function change_post_rating() {
 
     function getPostRating() {
         global $wpdb;
-        $rating = 0;
         $newtable = $wpdb->get_results( "SELECT post_rating FROM $wpdb->posts WHERE ID=".get_the_ID());
-        foreach($newtable as $val) {
-            $rating = $val->post_rating;
-        }
+        $rating = round($newtable[0]->post_rating,1);
         return $rating;
     }
 
