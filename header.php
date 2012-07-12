@@ -18,6 +18,9 @@
 <!--    <script type="text/javascript" src="--><?php //echo $theme_dir; ?><!--/js/less.js"></script>-->
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/slides.js"></script>
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/main.js"></script>
+    <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?49"></script>
+
+    <script type="text/javascript"></script>
     <?php wp_head(); ?>
 </head>
 

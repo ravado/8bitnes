@@ -79,6 +79,11 @@
                     </table>
                 </div>
             </div>
+            <div class="comments complete-block">
+                <div class="blue-head-block">Комментарии</div>
+                <div class="block-content"  id="vk_comments">
+                </div>
+            </div>
             <div class="clear-both"></div>
         </div>
         <div class="clear-both"></div>

@@ -81,7 +81,8 @@ function fuckOffTarget() {
 }
 
 $(document).ready(function() {
-
+    VK.init({apiId: 3033594, onlyWidgets: true});
+    VK.Widgets.Comments("vk_comments", {limit: 10, width: "791", attach: "*"});
     $("input.gsc-search-button").live('click', function() {
 
     });
