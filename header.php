@@ -13,6 +13,7 @@
 <!--    <link rel="stylesheet" href="--><?php //echo $theme_dir; ?><!--/css/bootstrap.css">-->
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/jquery.cookies.js"></script>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <!--    <script type="text/javascript" src="--><?php //echo $theme_dir; ?><!--/js/bootstrap.js"></script>-->
 <!--    <script type="text/javascript" src="--><?php //echo $theme_dir; ?><!--/js/less.js"></script>-->
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/slides.js"></script>
@@ -46,10 +47,10 @@
             ?>
 
             <div class="search-bar">
-                <form action="" id="frm-search">
+                <form action="<?php echo esc_url( home_url( '/' ) ); ?>" id="frm-search" method="get">
                     <fieldset>
-                        <input type="text" placeholder="Поиск" class="search-input">
-                        <input type="submit" value="ss " class="btn-search">
+                        <input type="text" placeholder="Поиск" name="s" id="s" class="search-input">
+                        <input type="submit" value="" class="btn-search">
                     </fieldset>
                 </form>
             </div>

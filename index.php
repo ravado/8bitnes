@@ -73,6 +73,8 @@
                             <?php
                                 if($counter == 4) {
                                     echo '</tr><tr>';
+                                    $counter = 0;
+
                                 }
                                 $counter++;
                             ?>
@@ -90,8 +92,21 @@
                     <thead></thead>
                     <tbody>
                     <tr>
-                        <?php $counter = 1; ?>
-                        <?php query_posts('posts_per_page=8 & orderby=rand'); ?>
+                        <?php $counter = 1;
+                        $arg = array(
+                            'post_type'=> 'post',
+                            'post_status' => 'publish',
+                            'order' => 'DESC',
+                            'orderby' => 'rand',
+                            'posts_per_page' => 8,
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field' => 'slug',
+                                    'terms' => array( 'post-format-image' )
+                                )
+                            ));?>
+                        <?php query_posts($arg); ?>
                         <?php while (have_posts()) : the_post(); ?>
                         <td>
                             <div class="game-item">
@@ -135,8 +150,10 @@
                 </table>
             </div>
         </div>
-            <div style="width:100%;">Все игры
+            <div class="">
+                <a href="/category/games" class="btn-all-games">Все игры</a>
             </div>
+
             <div class="clear-both"></div>
         </div>
         <div class="clear-both"></div>

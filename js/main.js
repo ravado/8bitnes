@@ -1,4 +1,43 @@
 
+var timer_id;
+function some() {
+    $("input.gsc-input").focus();
+    $("input.gsc-input").attr('placeholder','Введиде поисковую фразу');
+    var search_query = $("#search-query").val();
+    clearInterval(timer_id);
+    if(search_query != '') {
+        $(".gsc-input input").val(search_query);
+        $("input.gsc-search-button").click();
+    }
+    $(".gsc-tabHeader").each(function(e) {
+        if($(this).text() == 'Интернет') {
+            $(this).text('По записям');
+        } else if($(this).text() == 'Картинка') {
+            $(this).text('По картинкам');
+        }
+    });
+
+}
+// Поиск
+google.load('search', '1', {language : 'ru', style : google.loader.themes.V2_DEFAULT});
+google.setOnLoadCallback(function() {
+    var customSearchOptions = {};
+    var orderByOptions = {};
+    orderByOptions['keys'] = [{label: 'Релевантность', key: ''},{label: 'Дата', key: 'date'}];
+    customSearchOptions['enableOrderBy'] = true;
+    customSearchOptions['orderByOptions'] = orderByOptions;
+    var imageSearchOptions = {};
+    imageSearchOptions['layout'] = google.search.ImageSearch.LAYOUT_CLASSIC;
+    customSearchOptions['enableImageSearch'] = true;
+    customSearchOptions['imageSearchOptions'] = imageSearchOptions;  var customSearchControl = new google.search.CustomSearchControl(
+        '017974249376903738753:fqunvspraoe', customSearchOptions);
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('search-box');
+    timer_id = setInterval('some()', 10);
+}, true);
+
+
+
 // Слайдер
 $(function(){
     $('#slides').slides({
@@ -35,7 +74,29 @@ function setRatingBar() {
     $('#raiting_votes').width(star_widht);
 }
 
+function fuckOffTarget() {
+    $(".gsc-results.gsc-webResult a").removeAttr('target');
+    $(".gs-image-box a").removeAttr('target');
+    clearInterval(timer_id);
+}
+
 $(document).ready(function() {
+
+    $("input.gsc-search-button").live('click', function() {
+
+    });
+    $("input.gsc-input").live('keyup',function(e) {
+        if(e.keyCode == 13){
+            if($("input.gsc-input").val() != '') {
+                timer_id = setInterval('fuckOffTarget()', 700);
+//                $(".search-logo").animate({paddingTop:"0", opacity: "0"},800, "swing");
+            }
+        }
+    });
+
+    $(".gsc-tabHeader").live('click', function() {
+        timer_id = setInterval('fuckOffTarget()', 700);
+    });
 
     // Выставление правильного колчества сердечек рейтинга
     setRatingBar();

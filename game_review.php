@@ -1,4 +1,4 @@
-
+<!-- Шаблон для вывода игрового обзора, с рейтингом и сбором всех картинок поста в слайдер -->
 <div class="single-game complete-block">
     <div class="blue-head-block"><?php the_title() ?></div>
     <div class="block-content">
@@ -28,9 +28,9 @@
                 </h5>
             </div>
             <div id="raiting">
-                <div id="raiting_blank" data-original-title="Пользователь создавшый тест"></div>
-                <div id="raiting_hover" data-original-title="Пользователь создавшый тест"></div>
-                <div id="raiting_votes" data-original-title="Пользователь создавшый тест"></div>
+                <div id="raiting_blank"></div>
+                <div id="raiting_hover"></div>
+                <div id="raiting_votes"></div>
             </div>
         </div>
         <?php postWithoutImages(); ?>

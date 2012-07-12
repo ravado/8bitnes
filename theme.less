@@ -100,6 +100,11 @@ a {
         float: left;
         width: 100%;
     }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+
+    }
 }
 
 // Хедер
@@ -180,7 +185,7 @@ a {
 // Футер
 #footer {
     position:relative;
-    margin-top:-100px;
+    margin-top:-90px;
     height:100px;
     clear: both;
     float: left;
@@ -223,6 +228,18 @@ a {
 
 }
 
+a.btn-all-games {
+    color: white;
+    font-size: 20px;
+    background-color: orange;
+    padding: 5px 10px;
+    float: right;
+    border: none;
+    border-radius: 3px;
+    &:hover {
+        background-color: lighten(orange, 5%);
+    }
+}
 
 /* ======================================== Главное меню ============================================================ */
 #main-menu {
@@ -514,7 +531,7 @@ a {
 }
 
 .game-grid {
-    margin: 0 auto;
+//    margin: 0 auto;
     td {
         padding: 7px;
     }
@@ -669,3 +686,79 @@ a {
     }
 }
 /* ------------------------------------------------------Одна запись ------------------------------------------------ */
+
+/* ====================================================== Гугловский поиск ========================================== */
+div.gs-title {
+    text-decoration: none !important;
+    b {
+        text-decoration: none !important;
+    }
+}
+
+.gsc-results {
+    font-family: play, sans-serif !important;
+}
+
+a.gs-title {
+    color:  #1073AE !important;
+    b {
+        color: #0c547f !important;
+//        color: #ffc966 !important;
+    }
+    &:hover {
+        color: #66BDF1 !important;
+        b{
+            color: #37a9ed !important;
+        }
+    }
+}
+
+.gsc-table-result {
+    margin-left: 8px !important;
+}
+
+.gs-snippet {
+    padding-top: 5px !important;
+    font-family: play, sans-serif !important;
+}
+.gsc-thumbnail {
+    padding-right: 10px !important;
+}
+.gs-visibleUrl {
+    color: #b1b1b1 !important;
+}
+.gsc-result.gsc-webResult {
+    padding-right: 15px !important;
+    margin-top: 5px !important  ;
+    &:hover {
+        border-radius: 4px;
+        -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+        -moz-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+        box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+    }
+}
+a.gsst_a {
+    border: none !important;
+}
+.gsc-search-button {
+//    background-image: none !important;
+}
+div.gsc-input-box  {
+    border-radius: 3px !important;
+}
+input.gsc-input {
+    background: none !important;
+}
+.gs-result.gs-imageResult {
+    padding: 10px;
+    &:hover {
+        border-radius: 4px;
+        -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+        -moz-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+        box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+    }
+}
+.gsc-imageResult {
+    margin: 0px !important;
+}
+/* ------------------------------------------------------ Гугловский поиск ------------------------------------------ */

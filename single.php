@@ -8,7 +8,9 @@
             <?php increaseViews();
                 if(get_post_format($post->ID) == 'image') {
                     get_template_part('game_review');
-                } ?>
+                } else {
+                    get_template_part('default_post');
+                }?>
                 <input type="hidden" id="post_id" value="<?php echo get_the_ID() ?>">
             <?php endwhile; ?>
             <?php endif; ?>
@@ -20,8 +22,20 @@
                         <thead></thead>
                         <tbody>
                         <tr>
-                            <?php $counter = 1; ?>
-                            <?php query_posts('posts_per_page=4 & orderby=rand'); ?>
+                            <?php $counter = 1; $arg = array(
+                            'post_type'=> 'post',
+                            'post_status' => 'publish',
+                            'order' => 'DESC',
+                            'orderby' => 'rand',
+                            'posts_per_page' => 4,
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field' => 'slug',
+                                    'terms' => array( 'post-format-image' )
+                                )
+                            ));?>
+                            <?php query_posts($arg); ?>
                             <?php while (have_posts()) : the_post(); ?>
                             <td>
                                 <div class="game-item">
