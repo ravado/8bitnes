@@ -81,8 +81,30 @@ function fuckOffTarget() {
 }
 
 $(document).ready(function() {
+
+
+
+
+
     VK.init({apiId: 3033594, onlyWidgets: true});
     VK.Widgets.Comments("vk_comments", {limit: 10, width: "791", attach: "*"});
+
+
+    $(".error-404 .btn-action").click(function() {
+        $(".search-input").focus();
+    });
+
+    $(".search-input").focus(function(){
+       $(this).animate({width:150},200).css('opacity','1');
+        $(this).parent().animate({width:185},200).css('opacity','1');
+    });
+    $(".search-input").focusout(function(){
+        $(this).animate({width:100},200).css('opacity','0.7');
+        $(this).parent().animate({width:135},200).css('opacity','0.7');
+    });
+
+
+
     $("input.gsc-search-button").live('click', function() {
 
     });

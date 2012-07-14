@@ -50,7 +50,7 @@
             ?>
 
             <div class="search-bar">
-                <form action="<?php echo esc_url( home_url( '/' ) ); ?>" id="frm-search" method="get">
+                <form action="<?php echo esc_url( home_url( '/search/' ) ); ?>" id="frm-search" method="post">
                     <fieldset>
                         <input type="text" placeholder="Поиск" name="s" id="s" class="search-input">
                         <input type="submit" value="" class="btn-search">

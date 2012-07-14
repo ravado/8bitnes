@@ -13,7 +13,7 @@
                 }?>
                 <input type="hidden" id="post_id" value="<?php echo get_the_ID() ?>">
             <?php endwhile; ?>
-            <?php endif; ?>
+            <?php else: echo '<div style="padding: 100px; background-color: #000000;">asdasd</div>';  endif; ?>
 
             <div class="random-games complete-block">
                 <div class="blue-head-block">Случайные игры</div>
@@ -60,7 +60,7 @@
                                             </span>
                                             <span class="item-rating">
                                                 <span class="item-rating-icon"></span>
-                                                <p>8.8</p>
+                                                <p><?php echo $post->post_rating; ?></p>
                                             </span>
                                         </div>
                                         <div class="clear-both"></div>

@@ -1,16 +1,21 @@
+<?php
+/*
+Template Name: Main Page
+*/
+?>
 <?php get_header(); ?>
 <div id="content">
     <?php $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
         <?php get_sidebar(); ?>
         <div id="main-content">
-            <?php  if (is_home()){ echo's';} else { ?>
+            <?php  if (is_home()){ get_template_part('main_page');} else { ?>
             <div id="container">
                 <div id="example">
                     <div id="slides">
                         <div class="slide-border">
                             <div class="slides_container">
-                                <?php if((getTopGames(5))) echo 'not empty'; foreach (getTopGames(5) as $top_game ):?>
+                                <?php foreach (getTopGames(5) as $top_game ):?>
                                 <div class="slide">
                                     <a href="<?php echo get_permalink($top_game->ID); ?>" title="<?php echo $top_game->post_title; ?>" >
                                         <img src="<?php contentPart('url',$top_game->post_content) ?>" width="700" height="380" alt="<?php contentPart('alt',$top_game->post_content); ?>">
@@ -30,12 +35,12 @@
                 </div>
 
             </div>
-        <div class="popular-games complete-block">
-            <div class="blue-head-block">Популярные игры</div>
-            <div class="block-content">
-                <table class="game-grid">
-                    <thead></thead>
-                    <tbody>
+            <div class="popular-games complete-block">
+                <div class="blue-head-block">Популярные игры</div>
+                <div class="block-content">
+                    <table class="game-grid">
+                        <thead></thead>
+                        <tbody>
                         <tr>
                             <?php $counter = 1; ?>
                             <?php foreach(getPopularGames(8) as $popular_game): ?>
@@ -72,58 +77,58 @@
                                 </div>
                             </td>
                             <?php
-                                if($counter == 4) {
-                                    echo '</tr><tr>';
-                                    $counter = 0;
+                            if($counter == 4) {
+                                echo '</tr><tr>';
+                                $counter = 0;
 
-                                }
-                                $counter++;
+                            }
+                            $counter++;
                             ?>
                             <?php endforeach; ?>
                         </tr>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="random-games complete-block">
-            <div class="blue-head-block">Случайные игры</div>
-            <div class="block-content">
-                <table class="game-grid">
-                    <thead></thead>
-                    <tbody>
-                    <tr>
-                        <?php $counter = 1;
-                        $arg = array(
-                            'post_type'=> 'post',
-                            'post_status' => 'publish',
-                            'order' => 'DESC',
-                            'orderby' => 'rand',
-                            'posts_per_page' => 8,
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'post_format',
-                                    'field' => 'slug',
-                                    'terms' => array( 'post-format-image' )
-                                )
-                            ));?>
-                        <?php query_posts($arg); ?>
-                        <?php while (have_posts()) : the_post(); ?>
-                        <td>
-                            <div class="game-item">
-                                <div class="head-orange">
-                                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                </div>
-                                <div class="item-content">
-                                    <div class="item-image">
-                                        <a href="<?php the_permalink(); ?>">
-                                            <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
-                                        </a>
+            <div class="random-games complete-block">
+                <div class="blue-head-block">Случайные игры</div>
+                <div class="block-content">
+                    <table class="game-grid">
+                        <thead></thead>
+                        <tbody>
+                        <tr>
+                            <?php $counter = 1;
+                            $arg = array(
+                                'post_type'=> 'post',
+                                'post_status' => 'publish',
+                                'order' => 'DESC',
+                                'orderby' => 'rand',
+                                'posts_per_page' => 8,
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'post_format',
+                                        'field' => 'slug',
+                                        'terms' => array( 'post-format-image' )
+                                    )
+                                ));?>
+                            <?php query_posts($arg); ?>
+                            <?php while (have_posts()) : the_post(); ?>
+                            <td>
+                                <div class="game-item">
+                                    <div class="head-orange">
+                                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                     </div>
-                                    <div class="item-decription">
-                                        <p><?php contentPart('rev'); ?></p>
-                                    </div>
-                                    <div class="item-info">
+                                    <div class="item-content">
+                                        <div class="item-image">
+                                            <a href="<?php the_permalink(); ?>">
+                                                <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
+                                            </a>
+                                        </div>
+                                        <div class="item-decription">
+                                            <p><?php contentPart('rev'); ?></p>
+                                        </div>
+                                        <div class="item-info">
                                             <span class="item-genre">
                                                 <p>Жанр:
                                                     <?php $categories = get_the_category(); ?>
@@ -134,22 +139,22 @@
                                                 <span class="item-rating-icon"></span>
                                                 <p><?php echo $post->post_rating; ?></p>
                                             </span>
+                                        </div>
+                                        <div class="clear-both"></div>
                                     </div>
-                                    <div class="clear-both"></div>
                                 </div>
-                            </div>
-                        </td>
-                        <?php
-                        if($counter == 4) {
-                            echo '</tr><tr>';
-                        }
-                        $counter++;
-                        ?>
-                        <?php endwhile; ?>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                            </td>
+                            <?php
+                            if($counter == 4) {
+                                echo '</tr><tr>';
+                            }
+                            $counter++;
+                            ?>
+                            <?php endwhile; ?>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="">
                 <a href="/category/games" class="btn-all-games">Все игры</a>
