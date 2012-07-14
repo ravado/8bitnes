@@ -157,7 +157,7 @@ Template Name: Main Page
                 </div>
             </div>
             <div class="">
-                <a href="/category/games" class="btn-all-games">Все игры</a>
+                <a href="/all" class="btn-all-games">Все игры</a>
             </div>
 
             <div class="clear-both"></div>

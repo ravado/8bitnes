@@ -1,31 +1,41 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: admin
- * Date: 10.07.12
- * Time: 19:13
- * To change this template use File | Settings | File Templates.
- */
-?>
 <?php get_header() ?>
 <div id="content">
     <?php $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
         <?php get_sidebar(); ?>
         <div id="main-content">
-            <?php if (is_category());
-                $cat_id = get_query_var('cat');
-                $cat = get_category($cat_id);
-            ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <?php increaseViews();
+            if(get_post_format($post->ID) == 'image') {
+                get_template_part('game_review');
+            } else {
+                get_template_part('default_post');
+            }?>
+            <input type="hidden" id="post_id" value="<?php echo get_the_ID() ?>">
+            <?php endwhile; ?>
+            <?php else: echo '<div style="padding: 100px; background-color: #000000;">asdasd</div>';  endif; ?>
+
             <div class="random-games complete-block">
-                <div class="blue-head-block"><?php echo $cat->cat_name; ?></div>
+                <div class="blue-head-block">Случайные игры</div>
                 <div class="block-content">
                     <table class="game-grid">
                         <thead></thead>
                         <tbody>
                         <tr>
-                            <?php $counter = 1;
-                            ?>
+                            <?php $counter = 1; $arg = array(
+                            'post_type'=> 'post',
+                            'post_status' => 'publish',
+                            'order' => 'DESC',
+                            'orderby' => 'rand',
+                            'posts_per_page' => 4,
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field' => 'slug',
+                                    'terms' => array( 'post-format-image' )
+                                )
+                            ));?>
+                            <?php query_posts($arg); ?>
                             <?php while (have_posts()) : the_post(); ?>
                             <td>
                                 <div class="game-item">
@@ -69,11 +79,14 @@
                     </table>
                 </div>
             </div>
+            <div class="comments complete-block">
+                <div class="blue-head-block">Комментарии</div>
+                <div class="block-content"  id="vk_comments">
+                </div>
+            </div>
             <div class="clear-both"></div>
-            <?php if (function_exists('wp_corenavi')) wp_corenavi(); ?>
         </div>
         <div class="clear-both"></div>
-
     </div>
     <div class="empty"></div>
     <div class="clear-both"></div>

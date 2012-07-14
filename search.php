@@ -15,7 +15,7 @@
     <div id="fixed-content">
         <?php get_sidebar(); ?>
         <div id="main-content">
-            <input type="hidden" id="search-query" value="<?php echo $_GET['s']; ?>">
+            <input type="hidden" id="search-query" value="<?php echo $_POST['s']; ?>">
             <div class="random-games complete-block">
                 <div class="blue-head-block">Поиск</div>
                 <div class="block-content" id="search-box">

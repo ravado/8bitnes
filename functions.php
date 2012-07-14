@@ -182,7 +182,6 @@
 
 function wp_corenavi() {
     global $wp_query, $wp_rewrite;
-    $pages = '';
     $max = $wp_query->max_num_pages;
     if (!$current = get_query_var('paged')) $current = 1;
     $a['base'] = str_replace(999999999, '%#%', get_pagenum_link(999999999));
@@ -195,10 +194,11 @@ function wp_corenavi() {
     $a['prev_text'] = '&laquo;'; //текст ссылки "Предыдущая страница"
     $a['next_text'] = '&raquo;'; //текст ссылки "Следующая страница"
 
-    if ($max > 1) echo '<div class="navigation">';
-    if ($total == 1 && $max > 1) $pages = '<span class="pages">Страница ' . $current . ' из ' . $max . '</span>'."\r\n";
-    echo $pages . paginate_links($a);
-    if ($max > 1) echo '</div>';
+    if ($max > 1) echo '<div class="navigation"><ul>';
+
+
+    echo '<li>' . paginate_links($a) .'</li>';
+    if ($max > 1) echo '</ul></div>';
 }
 
 ?>

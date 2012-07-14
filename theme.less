@@ -231,15 +231,20 @@ a {
 }
 
 a.btn-all-games {
-    color: white;
+
     font-size: 20px;
-    background-color: orange;
+
     padding: 5px 10px;
     float: right;
-    border: none;
+    border: 2px solid #000;
     border-radius: 3px;
+    background-color: #333;
+    color: white;
     &:hover {
-        background-color: lighten(orange, 5%);
+        background-color: lighten(#333, 15%);
+//        border: 2px solid #fff;
+//        color: #333;
+//        background-color: white;
     }
 }
 
@@ -441,7 +446,40 @@ a.btn-all-games {
     }
 }
 /* ----------------------------------- Форма поиска в главном меню -------------------------------------------------- */
-
+/* =========================================== Блок с пагинацией ==================================================== */
+.navigation {
+    .page-numbers {
+        border: 2px solid #000000;
+        text-align: center;
+        padding: 0 10px;
+        line-height: 29px;
+        display: block;
+        float: left;
+        background-color: white;
+        margin-left: -2px;
+        font-size: 12px;
+        color: #333;
+        &:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+        &:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+        &:hover {
+            background-color: #ededed;
+        }
+    }
+    span.page-numbers {
+        font-size: 14px;
+        font-weight: bolder;
+        background-color: #333;
+        color: white;
+        &:hover {
+            background-color: #333;
+        }
+    }
+}
+/* ------------------------------------------- Блок с пагинацией ---------------------------------------------------- */
 
 .game-item {
     width: @short_item_width;
