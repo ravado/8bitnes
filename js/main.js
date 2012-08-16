@@ -82,7 +82,27 @@ function fuckOffTarget() {
 
 $(document).ready(function() {
 
+    $(".btn-search").click(function() {
+        if($(".search-input").val() != '') {
+            $("#frm-search").submit();
+        } else {
+        }
+    });
+    $("input.search-input").live('keyup',function(e) {
+        if(e.keyCode == 13){
+            if($("input.search-input").val() != '') {
+                $("#frm-search").submit();
+            }
+        }
+    });
 
+    $("#frm-search").submit(function() {
+        if($(".search-input").val() != '') {
+            $("#frm-search").submit();
+        } else {
+            return false;
+        }
+    });
 
 
 

@@ -17,9 +17,8 @@
 <!--    <script type="text/javascript" src="--><?php //echo $theme_dir; ?><!--/js/bootstrap.js"></script>-->
 <!--    <script type="text/javascript" src="--><?php //echo $theme_dir; ?><!--/js/less.js"></script>-->
     <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/slides.js"></script>
-    <script type="text/javascript" src="<?php echo $theme_dir; ?>/js/main.js"></script>
     <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?49"></script>
-
+<script type="text/javascript" src="<?php echo $theme_dir; ?>/js/main.js"></script>
     <script type="text/javascript"></script>
     <?php wp_head(); ?>
 </head>
@@ -50,10 +49,10 @@
             ?>
 
             <div class="search-bar">
-                <form action="<?php echo esc_url( home_url( '/search/' ) ); ?>" id="frm-search" method="post">
+                <form action="<?php echo esc_url( home_url( '/search' ) ); ?>" id="frm-search" method="post">
                     <fieldset>
                         <input type="text" placeholder="Поиск" name="s" id="s" class="search-input">
-                        <input type="submit" value="" class="btn-search">
+                        <input type="button" value="" class="btn-search">
                     </fieldset>
                 </form>
             </div>
