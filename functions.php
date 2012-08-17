@@ -49,9 +49,9 @@
         register_sidebar (array (
             'name' => 'Левая боковая колонка',
             'before_widget' => '<div class="complete-block">',
-            'after_widget' => '</ul></div></div>',
-            'before_title' => '<div class="blue-head-block">',
-            'after_title' => '</div><div class="block-content"><ul class="sidebar-menu">',
+            'after_widget' => '</ul></nav></div></div>',
+            'before_title' => '<header class="blue-head-block">',
+            'after_title' => '</header><div class="block-content"><nav><ul class="sidebar-menu">',
         ));
     }
 
