@@ -2,11 +2,8 @@
 <div id="content">
     <?php $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
-        <section id="sidebar-left">
-            <?php get_sidebar(); ?>
-        </section>
-dddd
-        <section id="main-content">
+        <?php get_sidebar(); ?>
+        <div id="main-content">
             <div class="random-games complete-block">
                 <div class="blue-head-block">Все игры</div>
                 <div class="block-content">
@@ -59,7 +56,7 @@ dddd
                     </table>
                 </div>
             <div class="clear-both"></div>
-        </section>
+        </div>
         <div class="clear-both"></div>
             <?php if (function_exists('wp_corenavi')) wp_corenavi(); ?>
     </div>
