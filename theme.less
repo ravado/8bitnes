@@ -111,7 +111,7 @@ a {
 
 // Хедер
 #header {
-    height: 230px;
+    height: 260px;
     width: 100%;
 //    background-color: #00262f;
     background: url("../8bitnes/img/textures/1.jpeg");
@@ -136,6 +136,26 @@ a {
     a { border: none; }
 
 }
+
+// Блок с логотипом
+.logo {
+    float: left;
+}
+
+// Блок с социальными кнопками
+.social {
+    margin-top: 20px;
+    float: right;
+
+    img {
+        opacity: 0.8;
+        margin-left: 5px;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
 
 // Блок с главным меню
 #menu {
@@ -167,6 +187,13 @@ a {
     color: #ffffff;
 }
 
+.site-review {
+//    color: #E8E0CA;
+    margin-top: 20px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
 
 // Средняя часть сайта (контент фиксированого размера)
 #fixed-content {

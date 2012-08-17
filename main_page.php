@@ -11,8 +11,6 @@ Template Name: Main Page
         <? get_sidebar(); ?>
         </section>
         <section id="main-content">
-            <? if (is_home()){ get_template_part('main_page');} else { ?>
-
             <div id="container">
                 <div id="example">
                     <div id="slides">
@@ -131,12 +129,14 @@ Template Name: Main Page
             <div class="">
                 <a href="/all" class="btn-all-games">Все игры</a>
             </div>
-
             <div class="clear-both"></div>
-            <? }; ?>
+            <div class="site-review">
+                <p>Dendy — <strong>игровая приставка</strong>, неофициальный аппаратный клон консоли третьего поколения Famicom (в США и Европе известной как Nintendo Entertainment System) японской фирмы Nintendo. В основу Dendy был положен японский конструктив аппаратной части и формат картриджа, несколько <strong>игровая приставка</strong> отличавшийся от американского. Dendy выпускалась с конца 1992 года компанией Steepler[1], собиралась в Тайване из китайских комплектующих по заказу Steepler и была распространена в республиках бывшего СССР, особенно в России, на Украине и в Казахстане. Поскольку на постсоветском пространстве NES официально никогда не выпускалась, Dendy, которая была широко распространена и доступна по цене, в своё время снискала большую популярность.</p>
+            </div>
         </section>
         <div class="clear-both"></div>
     </div>
+
     <div class="empty"></div>
     <div class="clear-both"></div>
 </div>

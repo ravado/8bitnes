@@ -1,66 +1,63 @@
-<?php get_header(); ?>
+<? get_header(); ?>
 <div id="content">
-    <?php $theme_dir = get_template_directory_uri();?>
+    <? $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
-        <?php get_sidebar(); ?>
-        <div id="main-content">
+        <section id="sidebar-left">
+            <? get_sidebar(); ?>
+        </section>
+        <section id="main-content">
+            <img src="http://o7.no/OG7e9i" alt="">
             <div class="random-games complete-block">
-                <div class="blue-head-block">Все игры</div>
+                <? if(have_posts()): ?>
+                <header class="blue-head-block">Все игры</header>
                 <div class="block-content">
-                    <table class="game-grid">
-                        <thead></thead>
-                        <tbody>
-                        <tr>
-                            <?php $counter = 1; ?>
-                            <?php while (have_posts()) : the_post(); ?>
-                            <td>
+                            <? while (have_posts()) : the_post(); ?>
                                 <div class="game-item">
-                                    <div class="head-orange">
-                                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                    </div>
+                                    <header class="head-orange">
+                                        <h3><a href="<? the_permalink(); ?>"><? the_title(); ?></a></h3>
+                                    </header>
                                     <div class="item-content">
                                         <div class="item-image">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
+                                            <a href="<? the_permalink(); ?>">
+                                                <img src="<? contentPart('url'); ?>" alt="<? contentPart('alt'); ?>" width="176" height="120">
                                             </a>
                                         </div>
                                         <div class="item-decription">
-                                            <p><?php contentPart('rev'); ?></p>
-                                        </div>
-                                        <div class="item-info">
-                                            <span class="item-genre">
-                                                <p>Жанр:
-                                                    <?php $categories = get_the_category(); ?>
-                                                    <a href="<?php echo get_category_link($categories[0]->cat_ID); ?>"><?php echo $categories[0]->name; ?></a>
-                                                </p>
-                                            </span>
+                                            <p><? contentPart('rev'); ?></p>
+                                        </div>                                                                                
+                                    </div>
+                                    <footer class="item-info">                                        
                                             <span class="item-rating">
                                                 <span class="item-rating-icon"></span>
-                                                <p><?php echo $post->post_rating; ?></p>
+                                                <span class="rating"><? echo $post->post_rating; ?></span>
                                             </span>
-                                        </div>
-                                        <div class="clear-both"></div>
-                                    </div>
+                                            <span class="item-more">
+                                                <a href="<? the_permalink(); ?>" class="lnk-more">Подробнее</a>
+                                            </span>
+                                    </footer>
                                 </div>
-                            </td>
-                            <?php
-                            if($counter == 4) {
-                                echo '</tr><tr>';
-                                $counter = 0;
-                            }
-                            $counter++;
-                            ?>
-                            <?php endwhile; ?>
-                        </tr>
-                        </tbody>
-                    </table>
+                            <? endwhile; ?>
+                    <div class="clear-both"></div>
                 </div>
-            <div class="clear-both"></div>
-        </div>
-        <div class="clear-both"></div>
-            <?php if (function_exists('wp_corenavi')) wp_corenavi(); ?>
+                <nav style="margin-top: 10px;">
+                    <? if (function_exists('wp_corenavi')) wp_corenavi(); ?>
+                </nav>
+                    <?else:?>
+
+                <header class="blue-head-block">Ошибка: страница не найдена</header>
+                <div class="block-content">
+                            <div class="not-found">
+                                <h3>Страница не найдена (ошибка 404)</h3>
+                                <p>Не волнуйтесь она не могла далеко уйти :)</p>
+                                <p>Вы можете начать поиски с <a href="/">главной страницы</a>,
+                                <p>либо воспользоваться нашей <a class="btn-action ">формой поиска</a><!-- для того что бы найти пропажу--></p></div>
+                        </div>
+                    </div>
+                <? endif; ?>
+               </div>
+        </section>
     </div>
     <div class="empty"></div>
     <div class="clear-both"></div>
 </div>
-<?php get_footer(); ?>
+<? get_footer(); ?>

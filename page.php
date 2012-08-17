@@ -1,28 +1,26 @@
-<?php get_header() ?>
+<? get_header() ?>
 <div id="content">
-    <?php $theme_dir = get_template_directory_uri();?>
+    <? $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
-        <?php get_sidebar(); ?>
-        <div id="main-content">
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <?php increaseViews();
+        <section id="sidebar-left">
+            <? get_sidebar(); ?>
+        </section>
+        <section id="main-content">
+            <? if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <? increaseViews();
             if(get_post_format($post->ID) == 'image') {
                 get_template_part('game_review');
             } else {
                 get_template_part('default_post');
             }?>
-            <input type="hidden" id="post_id" value="<?php echo get_the_ID() ?>">
-            <?php endwhile; ?>
-            <?php else: echo '<div style="padding: 100px; background-color: #000000;">asdasd</div>';  endif; ?>
+            <input type="hidden" id="post_id" value="<?= get_the_ID() ?>">
+            <? endwhile; ?>
+            <? else: echo '<div style="padding: 100px; background-color: #000000;">asdasd</div>';  endif; ?>
 
             <div class="random-games complete-block">
-                <div class="blue-head-block">Случайные игры</div>
+                <header class="blue-head-block">Случайные игры</header>
                 <div class="block-content">
-                    <table class="game-grid">
-                        <thead></thead>
-                        <tbody>
-                        <tr>
-                            <?php $counter = 1; $arg = array(
+                            <? $arg = array(
                             'post_type'=> 'post',
                             'post_status' => 'publish',
                             'order' => 'DESC',
@@ -35,48 +33,34 @@
                                     'terms' => array( 'post-format-image' )
                                 )
                             ));?>
-                            <?php query_posts($arg); ?>
-                            <?php while (have_posts()) : the_post(); ?>
-                            <td>
+                            <? query_posts($arg); ?>
+                            <? while (have_posts()) : the_post(); ?>
                                 <div class="game-item">
-                                    <div class="head-orange">
-                                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                    </div>
+                                    <header class="head-orange">
+                                        <h3><a href="<? the_permalink(); ?>"><? the_title(); ?></a></h3>
+                                    </header>
                                     <div class="item-content">
                                         <div class="item-image">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
+                                            <a href="<? the_permalink(); ?>">
+                                                <img src="<? contentPart('url'); ?>" alt="<? contentPart('alt'); ?>" width="176" height="120">
                                             </a>
                                         </div>
                                         <div class="item-decription">
-                                            <p><?php contentPart('rev'); ?></p>
-                                        </div>
-                                        <div class="item-info">
-                                            <span class="item-genre">
-                                                <p>Жанр:
-                                                    <?php $categories = get_the_category(); ?>
-                                                    <a href="<?php echo get_category_link($categories[0]->cat_ID); ?>"><?php echo $categories[0]->name; ?></a>
-                                                </p>
-                                            </span>
-                                            <span class="item-rating">
-                                                <span class="item-rating-icon"></span>
-                                                <p><?php echo $post->post_rating; ?></p>
-                                            </span>
-                                        </div>
-                                        <div class="clear-both"></div>
+                                            <p><? contentPart('rev'); ?></p>
+                                        </div>                                                                                
                                     </div>
+                                    <footer class="item-info">
+                                        <span class="item-rating">
+                                                <span class="item-rating-icon"></span>
+                                                <span class="rating"><?= $post->post_rating; ?></span>
+                                            </span>
+                                            <span class="item-more">
+                                                <a href="<? the_permalink(); ?>" class="lnk-more">Подробнее</a>
+                                            </span>                                            
+                                    </footer>
                                 </div>
-                            </td>
-                            <?php
-                            if($counter == 4) {
-                                echo '</tr><tr>';
-                            }
-                            $counter++;
-                            ?>
-                            <?php endwhile; ?>
-                        </tr>
-                        </tbody>
-                    </table>
+                            <? endwhile; ?>
+                    <div class="clear-both"></div>
                 </div>
             </div>
             <div class="comments complete-block">
@@ -85,10 +69,10 @@
                 </div>
             </div>
             <div class="clear-both"></div>
-        </div>
+        </section>
         <div class="clear-both"></div>
     </div>
     <div class="empty"></div>
     <div class="clear-both"></div>
 </div>
-<?php get_footer() ?>
+<? get_footer() ?>

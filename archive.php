@@ -1,81 +1,67 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: admin
- * Date: 10.07.12
- * Time: 19:13
- * To change this template use File | Settings | File Templates.
- */
-?>
-<?php get_header() ?>
+<? get_header() ?>
 <div id="content">
-    <?php $theme_dir = get_template_directory_uri();?>
+    <? $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
-        <?php get_sidebar(); ?>
-        <div id="main-content">
-            <?php if (is_category());
-                $cat_id = get_query_var('cat');
-                $cat = get_category($cat_id);
-            ?>
+        <section id="sidebar-left">
+            <? get_sidebar(); ?>
+        </section>
+        <section id="main-content">
             <div class="random-games complete-block">
-                <div class="blue-head-block"><?php echo $cat->cat_name; ?></div>
+                <div class="blue-head-block">
+                    <?php if ( is_day() ) : ?>
+                    <?php printf( __( 'Daily Archives: %s', 'twentyeleven' ), '<span>' . get_the_date() . '</span>' ); ?>
+                    <?php elseif ( is_month() ) : ?>
+                    <?php printf( __( 'Monthly Archives: %s', 'twentyeleven' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'twentyeleven' ) ) . '</span>' ); ?>
+                    <?php elseif ( is_year() ) : ?>
+                    <?php printf( __( 'Yearly Archives: %s', 'twentyeleven' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentyeleven' ) ) . '</span>' ); ?>
+                    <? elseif (is_category()): single_cat_title();?>
+                    <? elseif(is_tag()): single_tag_title();?>
+                    <? else: echo 'Архив';?>
+                    <? endif; ?>
+                </div>
                 <div class="block-content">
-                    <table class="game-grid">
-                        <thead></thead>
-                        <tbody>
-                        <tr>
-                            <?php $counter = 1;
-                            ?>
-                            <?php while (have_posts()) : the_post(); ?>
-                            <td>
+                            <? while (have_posts()) : the_post(); ?>
                                 <div class="game-item">
-                                    <div class="head-orange">
-                                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                    </div>
+                                    <header class="head-orange">
+                                        <h3><a href="<? the_permalink(); ?>"><? the_title(); ?></a></h3>
+                                    </header>
                                     <div class="item-content">
                                         <div class="item-image">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <img src="<?php contentPart('url'); ?>" alt="<?php contentPart('alt'); ?>" width="176" height="120">
+                                            <a href="<? the_permalink(); ?>">
+                                                <img src="<? contentPart('url'); ?>" alt="<? contentPart('alt'); ?>" width="176" height="120">
                                             </a>
                                         </div>
                                         <div class="item-decription">
-                                            <p><?php contentPart('rev'); ?></p>
-                                        </div>
-                                        <div class="item-info">
-                                            <span class="item-genre">
-                                                <p>Жанр:
-                                                    <?php $categories = get_the_category(); ?>
-                                                    <a href="<?php echo get_category_link($categories[0]->cat_ID); ?>"><?php echo $categories[0]->name; ?></a>
-                                                </p>
-                                            </span>
+                                            <p><? contentPart('rev'); ?></p>
+                                        </div>                                        
+                                    </div>
+                                    <footer class="item-info">
                                             <span class="item-rating">
                                                 <span class="item-rating-icon"></span>
-                                                <p><?php echo $post->post_rating; ?></p>
+                                                <span class="rating"><?= $post->post_rating; ?></span>
                                             </span>
-                                        </div>
-                                        <div class="clear-both"></div>
-                                    </div>
+                                            <span class="item-more">
+                                                <a href="<? the_permalink(); ?>">Подробнее</a>
+                                            </span>
+                                    </footer>
                                 </div>
-                            </td>
-                            <?php
-                            if($counter == 4) {
-                                echo '</tr><tr>';
-                            }
-                            $counter++;
-                            ?>
-                            <?php endwhile; ?>
-                        </tr>
-                        </tbody>
-                    </table>
+                            <? endwhile; ?>
+                    <div class="clear-both"></div>
                 </div>
             </div>
+
+            <? if (function_exists('wp_corenavi')) wp_corenavi(); ?>
             <div class="clear-both"></div>
-            <?php if (function_exists('wp_corenavi')) wp_corenavi(); ?>
-        </div>
+            <div class="site-review">
+                <p>
+                    <?php echo category_description(); ?>
+                </p>
+            </div>
+        </section>
         <div class="clear-both"></div>
 
     </div>
     <div class="empty"></div>
     <div class="clear-both"></div>
 </div>
-<?php get_footer() ?>
+<? get_footer() ?>
