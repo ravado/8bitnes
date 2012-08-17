@@ -7,8 +7,10 @@ Template Name: Main Page
 <div id="content">
     <?php $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
-        <?php get_sidebar(); ?>
-        <div id="main-content">
+        <section id="sidebar-left">
+            <?php get_sidebar(); ?>
+        </section>
+        <section id="main-content">
             <?php  if (is_home()){ get_template_part('main_page');} else { ?>
             <div id="container">
                 <div id="example">
@@ -162,7 +164,7 @@ Template Name: Main Page
 
             <div class="clear-both"></div>
             <?php }; ?>
-        </div>
+        </section>
         <div class="clear-both"></div>
     </div>
     <div class="empty"></div>
