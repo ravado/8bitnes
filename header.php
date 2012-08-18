@@ -48,7 +48,7 @@
                     <form action="<?= esc_url( home_url( '/search' ) ); ?>" id="frm-search" method="post">
                         <fieldset>
                             <input type="text" placeholder="Поиск" name="s" id="s" class="search-input">
-                            <input type="button" value="search" class="btn-search">
+                            <input type="submit" value="search" class="btn-search">
                         </fieldset>
                     </form>
                 </div>

@@ -20,32 +20,36 @@
                     <? endif; ?>
                 </div>
                 <div class="block-content">
-                            <? while (have_posts()) : the_post(); ?>
-                                <div class="game-item">
-                                    <header class="head-orange">
-                                        <h3><a href="<? the_permalink(); ?>"><? the_title(); ?></a></h3>
-                                    </header>
-                                    <div class="item-content">
-                                        <div class="item-image">
-                                            <a href="<? the_permalink(); ?>">
-                                                <img src="<? contentPart('url'); ?>" alt="<? contentPart('alt'); ?>" width="176" height="120">
-                                            </a>
-                                        </div>
-                                        <div class="item-decription">
-                                            <p><? contentPart('rev'); ?></p>
-                                        </div>                                        
+                    <? if(have_posts()): ?>
+                        <? while (have_posts()) : the_post(); ?>
+                            <div class="game-item">
+                                <header class="head-orange">
+                                    <h3><a href="<? the_permalink(); ?>"><? the_title(); ?></a></h3>
+                                </header>
+                                <div class="item-content">
+                                    <div class="item-image">
+                                        <a href="<? the_permalink(); ?>">
+                                            <img src="<? contentPart('url'); ?>" alt="<? contentPart('alt'); ?>" width="176" height="120">
+                                        </a>
                                     </div>
-                                    <footer class="item-info">
-                                            <span class="item-rating">
-                                                <span class="item-rating-icon"></span>
-                                                <span class="rating"><?= $post->post_rating; ?></span>
-                                            </span>
-                                            <span class="item-more">
-                                                <a href="<? the_permalink(); ?>">Подробнее</a>
-                                            </span>
-                                    </footer>
+                                    <div class="item-decription">
+                                        <p><? contentPart('rev'); ?></p>
+                                    </div>
                                 </div>
-                            <? endwhile; ?>
+                                <footer class="item-info">
+                                    <span class="item-rating">
+                                        <span class="item-rating-icon"></span>
+                                        <span class="rating"><?= $post->post_rating; ?></span>
+                                    </span>
+                                    <span class="item-more">
+                                        <a href="<? the_permalink(); ?>">Подробнее</a>
+                                    </span>
+                                </footer>
+                            </div>
+                        <? endwhile; ?>
+                    <? else: ?>
+                        <p>По данной категории записей не найдено. Попробуйте воспользоваться нашей <a class="btn-action to-search">формой поиска</a></p>
+                    <? endif; ?>
                     <div class="clear-both"></div>
                 </div>
             </div>
@@ -59,7 +63,6 @@
             </div>
         </section>
         <div class="clear-both"></div>
-
     </div>
     <div class="empty"></div>
     <div class="clear-both"></div>

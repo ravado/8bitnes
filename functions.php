@@ -1,7 +1,7 @@
 <?php
 
     // Добавляем в тему поддержку форматов записей
-    add_theme_support( 'post-formats', array( 'image' ) );
+    add_theme_support( 'post-formats', array( 'image', 'games' ) );
 
     // Добавление екшенов для работы аякс запроса
     add_action('wp_ajax_change_rating', 'change_post_rating');
@@ -51,7 +51,7 @@
             'before_widget' => '<div class="complete-block">',
             'after_widget' => '</nav></div></div>',
             'before_title' => '<header class="blue-head-block">',
-            'after_title' => '</header><div class="block-content"><nav class="sidebar-menu">',
+            'after_title' => '</header><div class="block-content "><nav class="sidebar-menu">',
         ));
     }
 
@@ -122,6 +122,14 @@
         $newtable = $wpdb->get_results( "SELECT post_rating FROM $wpdb->posts WHERE ID=".get_the_ID());
         $rating = round($newtable[0]->post_rating,1);
         return $rating;
+    }
+
+    // Получение количества голосований
+    function getRatingCount() {
+        global $wpdb;
+        $newtable = $wpdb->get_results( "SELECT votes_count FROM $wpdb->posts WHERE ID=".get_the_ID());
+        $votes_count = $newtable[0]->votes_count;
+        return $votes_count;
     }
 
     // Выборка игр с самым большим рейтингом

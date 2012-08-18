@@ -49,6 +49,12 @@ a {
     -o-border-image: url("img/block-green.png") 4 repeat;
 }
 
+.unpadding {
+    padding: 0!important;
+}
+.unmargin {
+    margin: 0!important;
+}
 
 // Синий блок с закруглением вверху только
 .blue-head-block {
@@ -103,8 +109,8 @@ a {
         width: 100%;
     }
     img {
-        max-width: 100%;
-        max-height: 100%;
+        max-width: 760px;
+        height: auto;
 
     }
 }
@@ -525,6 +531,9 @@ a.btn-all-games {
     float: left;
     margin: 10px 0 5px 12px;
     opacity: 1;
+    a {
+        border-bottom: none;
+    }
     h3 {
         font-size: 12px;
         line-height: 20px;
@@ -655,24 +664,27 @@ a.btn-all-games {
 /* =================================================== Боковое меню ================================================= */
 .sidebar-menu {
     li {
-//        padding: 0 10px 0 10px;
-        padding: 3px 10px 3px 10px;
+        padding: 2px 5px 2px 5px;
+        &:hover {
+
+        }
     }
     a {
-
-        line-height: 24px;
+//        width: 100%;
+        border-bottom: none;
+        line-height: 20px;
         text-decoration: none;
         color: #333;
-        border-bottom: 1px solid #ccc;
 //        display: block;
         font-size: 14px;
 
         &:hover {
+
+//            background-color: #ccc;
 //            background-color: #569536;
 
-
             color: orange;
-            border-bottom: 1px solid orange;
+//            border-bottom: 1px solid orange;
 
 //            font-weight: bold;
 //            font-size: 18px;
@@ -688,6 +700,14 @@ a.btn-all-games {
 
 /* ===================================================== Одна запись ================================================ */
 
+// Выравнивание в посте по центру
+img.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
 // блок с одной игрой
 .single-game {
 
@@ -847,9 +867,9 @@ a.gs-title {
     margin-top: 5px !important  ;
     &:hover {
         border-radius: 4px;
-        -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
-        -moz-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
-        box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+//        -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+//        -moz-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
+//        box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.3);
     }
 }
 a.gsst_a {
@@ -875,5 +895,8 @@ input.gsc-input {
 }
 .gsc-imageResult {
     margin: 0px !important;
+}
+.gs-image-box.gs-web-image-box.gs-web-image-box-landscape {
+    width: auto !important;
 }
 /* ------------------------------------------------------ Гугловский поиск ------------------------------------------ */

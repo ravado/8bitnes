@@ -8,23 +8,19 @@
  */
 ?>
 
-
 <?php get_header() ?>
 <div id="content">
-    <?php $theme_dir = get_template_directory_uri();?>
     <div id="fixed-content">
-        <?php get_sidebar(); ?>
-        <div id="main-content">
+        <section id="sidebar-left">
+            <?php get_sidebar(); ?>
+        </section>
+        <section id="main-content">
             <input type="hidden" id="search-query" value="<?php echo $_POST['s']; ?>">
             <div class="random-games complete-block">
                 <div class="blue-head-block">Поиск</div>
-                <div class="block-content" id="search-box">
-
-                </div>
+                <div class="block-content" id="search-box"></div>
             </div>
-            <div class="clear-both"></div>
-        </div>
-        <div class="clear-both"></div>
+        </section>
     </div>
     <div class="empty"></div>
     <div class="clear-both"></div>

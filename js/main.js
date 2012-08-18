@@ -49,17 +49,17 @@ $(function(){
         generateNextPrev: false,
         animationStart: function(current){
             $('.caption').animate({bottom:-35},100);
-            if (window.console && console.log) {
-                // example return of current slide number
-                console.log('animationStart on slide: ', current);
-            }
+//            if (window.console && console.log) {
+//                // example return of current slide number
+//                console.log('animationStart on slide: ', current);
+//            }
         },
         animationComplete: function(current){
             $('.caption').animate({bottom:0},200);
-            if (window.console && console.log) {
-                // example return of current slide number
-                console.log('animationComplete on slide: ', current);
-            }
+//            if (window.console && console.log) {
+//                // example return of current slide number
+//                console.log('animationComplete on slide: ', current);
+//            }
         },
         slidesLoaded: function() {
             $('.caption').animate({bottom:0},200);
@@ -82,35 +82,33 @@ function fuckOffTarget() {
 
 $(document).ready(function() {
 
-    $(".btn-search").click(function() {
-        if($(".search-input").val() != '') {
-            $("#frm-search").submit();
-        } else {
-        }
-    });
     $("input.search-input").live('keyup',function(e) {
         if(e.keyCode == 13){
-            if($("input.search-input").val() != '') {
-                $("#frm-search").submit();
-            }
-        }
-    });
-
-    $("#frm-search").submit(function() {
-        if($(".search-input").val() != '') {
             $("#frm-search").submit();
-        } else {
+        }
+    });
+
+    // Перехват сабмита формы поиска
+    $("#frm-search").submit(function() {
+        if($(".search-input").val() == '') {
+            console.log('Пустое значение');
+            $(".search-input").focus();
             return false;
+        } else {
+            return true;
         }
     });
 
 
+    try {
+        VK.init({apiId: 3033594, onlyWidgets: true});
+        VK.Widgets.Comments("vk_comments", {limit: 10, width: "791", attach: "*"});
+    } catch(error) {
+        console.log('Не удалось подключить коменты ВК');
+    }
 
-    VK.init({apiId: 3033594, onlyWidgets: true});
-    VK.Widgets.Comments("vk_comments", {limit: 10, width: "791", attach: "*"});
 
-
-    $(".error-404 .btn-action").click(function() {
+    $(".to-search").click(function() {
         $(".search-input").focus();
     });
 
