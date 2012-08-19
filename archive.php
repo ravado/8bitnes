@@ -38,8 +38,10 @@
                                 </div>
                                 <footer class="item-info">
                                     <span class="item-rating">
-                                        <span class="item-rating-icon"></span>
-                                        <span class="rating"><?= $post->post_rating; ?></span>
+                                        <? if(has_post_format('image')): ?>
+                                            <span class="item-rating-icon"></span>
+                                            <span class="rating"><?= $post->post_rating; ?></span>
+                                        <? endif; ?>
                                     </span>
                                     <span class="item-more">
                                         <a href="<? the_permalink(); ?>">Подробнее</a>

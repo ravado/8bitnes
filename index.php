@@ -8,11 +8,12 @@
         <section id="main-content">
             <div class="random-games complete-block">
                 <?
+                $paged = get_query_var('paged');
                 if(have_posts()):
                     ?>
                     <header class="blue-head-block">Все игры</header>
                     <div class="block-content">
-                        <? query_posts('tag=dendy')?>
+                        <? query_posts('tag=dendy&paged='.$paged)?>
                         <? while (have_posts()) : the_post(); ?>
                             <div class="game-item">
                                 <header class="head-orange">
@@ -30,8 +31,10 @@
                                 </div>
                                 <footer class="item-info">
                                     <span class="item-rating">
-                                        <span class="item-rating-icon"></span>
-                                        <span class="rating"><? echo $post->post_rating; ?></span>
+                                        <? if(has_post_format('image')): ?>
+                                            <span class="item-rating-icon"></span>
+                                            <span class="rating"><? echo $post->post_rating; ?></span>
+                                        <? endif; ?>
                                     </span>
                                     <span class="item-more">
                                         <a href="<? the_permalink(); ?>" class="lnk-more">Подробнее</a>

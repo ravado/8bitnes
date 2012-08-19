@@ -3,9 +3,9 @@
 // Высота главного меню
 @menu_height: 45px;
 // Ширина сайдбара
-@sidebar_width: 175px;
+@sidebar_width: 185px;
 // Ширина страницы
-@page_width: 980px;
+@page_width: 1000px;
 
 // Высота заголовка превьюшки
 @game_item_head_heigth: 20px;
@@ -70,6 +70,42 @@ a {
     line-height: 1.3em;
     border-radius: 15px;
     color: #ffffff;
+}
+
+
+// Блок с полезными статьями
+.useful {
+    .useful-item {
+        width: 47%;
+        height: 100px;
+        margin-left: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        float: left;
+        border: 1px solid #e5e5e5;
+        &:hover {
+        }
+        .useful-icon {
+            float: left;
+            padding: 10px 0 10px 10px;
+            margin-top: 10px;
+            float: left;
+        }
+        .useful-descr {
+            padding: 10px;
+            float: left;
+            width: 260px;
+            float: left;
+            p {
+                margin-top: 5px;
+                font-size: 12px;
+            }
+            h5 {
+                font-size: 14px;
+            }
+        }
+    }
+
 }
 
 
@@ -209,6 +245,10 @@ a {
 }
 
 
+.pull-right {
+    float: right;
+}
+
 /*   ===   Сайдбар   ===   */
 // Левый сайдбар
 #sidebar-left {
@@ -248,9 +288,10 @@ a {
 
 // Блок с непосредственным контентом
 #main-content {
-    padding: 0 0 0 10px;
-    float: left;
-    width: @page_width - @sidebar_width - 10px;
+//    padding: 0 0 0 20px;
+
+    float: right;
+    width: 795px;
 }
 
 
@@ -268,7 +309,7 @@ a {
 
 // Весь блок с контентом и заголовком
 .complete-block {
-    margin: 10px 0 10px 0;
+    margin: 10px 0 20px 0;
 
 }
 
@@ -503,6 +544,10 @@ a.btn-all-games {
         margin-left: -2px;
         font-size: 12px;
         color: #333;
+        &.dots {
+            background-color: #ffffff !important;
+            color: #333;
+        }
         &:first-child {
             border-radius: 5px 0 0 5px;
         }
@@ -664,7 +709,11 @@ a.btn-all-games {
 /* =================================================== Боковое меню ================================================= */
 .sidebar-menu {
     li {
-        padding: 2px 5px 2px 5px;
+        border-bottom: 1px solid #eee;
+        padding: 4px 5px 4px 5px;
+        &:last-child {
+            border-bottom: none;
+        }
         &:hover {
 
         }

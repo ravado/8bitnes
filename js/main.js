@@ -16,7 +16,7 @@ function some() {
             $(this).text('По картинкам');
         }
     });
-
+    $(".gsc-orderby-label").text('Сортировать по:');
 }
 // Поиск
 google.load('search', '1', {language : 'ru', style : google.loader.themes.V2_DEFAULT});
@@ -41,8 +41,8 @@ google.setOnLoadCallback(function() {
 // Слайдер
 $(function(){
     $('#slides').slides({
-        preload: true,
-        preloadImage: '../img/loading.gif',
+        preload: false,
+        preloadImage: 'img/loading.gif',
         play: 5000,
         pause: 2500,
         hoverPause: true,
@@ -81,6 +81,8 @@ function fuckOffTarget() {
 }
 
 $(document).ready(function() {
+
+
 
     $("input.search-input").live('keyup',function(e) {
         if(e.keyCode == 13){

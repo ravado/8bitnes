@@ -23,13 +23,13 @@
             <div id="wide-header">
                 <div id="fixed-header">
                     <div class="logo">
-                        <a href="/"><img src="<?= $theme_dir; ?>/img/logo.png" alt="logo" width="350"></a>
+                        <a href="/" title="Перейти на главную"><img src="<?= $theme_dir; ?>/img/logo.png" alt="logo" width="350"></a>
                     </div>
                     <div class="social">
-                        <a href><img src="<?= $theme_dir; ?>/img/social/facebook.png"></a>
-                        <a href><img src="<?= $theme_dir; ?>/img/social/twitter.png"></a>
-                        <a href><img src="<?= $theme_dir; ?>/img/social/google.png"></a>
-                        <a href><img src="<?= $theme_dir; ?>/img/social/rss.png"></a>
+<!--                        <a href><img src="--><?//= $theme_dir; ?><!--/img/social/facebook.png"></a>-->
+<!--                        <a href><img src="--><?//= $theme_dir; ?><!--/img/social/twitter.png"></a>-->
+<!--                        <a href><img src="--><?//= $theme_dir; ?><!--/img/social/google.png"></a>-->
+                        <a href="/rss" title="Подписаться на обновления"><img src="<?= $theme_dir; ?>/img/social/rss.png" alt="подписаться на обновления"></a>
                     </div>
                 </div>
             </div>

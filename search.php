@@ -19,6 +19,7 @@
             <div class="random-games complete-block">
                 <div class="blue-head-block">Поиск</div>
                 <div class="block-content" id="search-box"></div>
+                <img class="pull-right" style="margin-top: 5px;" src="<?= get_template_directory_uri()?>/img/google.gif" alt="google logo">
             </div>
         </section>
     </div>
