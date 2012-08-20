@@ -128,28 +128,28 @@ Template Name: Main Page
                     <div class="useful-item">
                         <div class="useful-icon"><img src="<?=$theme_dir?>/img/ask2.png" alt=""></div>
                         <div class="useful-descr">
-                            <h5><a href="">Как играть?</a></h5>
+                            <h5><a href="http://www.emulroom.com/how-to-play/">Как играть?</a></h5>
                             <p>Статья для тех, кто хочет сыграть в старые добрые <strong>Денди игры</strong>, но еще не знает, как это сделать. В статье есть подробное описание основных необходимых действий, чтобы начать игру. </p>
                         </div>
                     </div>
                     <div class="useful-item">
                         <div class="useful-icon"><img src="<?=$theme_dir?>/img/emul3.png" alt=""></div>
                         <div class="useful-descr">
-                            <h5><a href="">Эмуляторы для Денди</a></h5>
+                            <h5><a href="http://www.emulroom.com/category/emulators/">Эмуляторы для Денди</a></h5>
                             <p>Без <strong>эмулятора</strong> сыграть на компьютере в старые игры (<strong>Денди</strong>, <strong>Сега</strong> и т.д.) едва получится, поэтому перед тем как играть, обзаведитесь необходимым эмулятором.</p>
                         </div>
                     </div>
                     <div class="useful-item">
                         <div class="useful-icon"><img src="<?=$theme_dir?>/img/lan2.png" alt=""></div>
                         <div class="useful-descr">
-                            <h5><a href="">Настройка игры по локальной сети</a></h5>
+                            <h5><a href="http://www.emulroom.com/lan-play/">Настройка игры по локальной сети</a></h5>
                             <p>Часто игра в одиночку очень быстро надоедает, а друг Что же делать? Есть выход. Можно <strong>настроить сетевую игру</strong> между двумя, тремя или большим количествомемя или большим количеством компьютеров. </p>
                         </div>
                     </div>
                     <div class="useful-item">
                         <div class="useful-icon"><img src="<?=$theme_dir?>/img/web2.png" alt=""></div>
                         <div class="useful-descr">
-                            <h5><a href="">Настройка игры по сети Интернет</a></h5>
+                            <h5><a href="http://www.emulroom.com/emulators/dendy-emulators/nestopia-dendy-emulators/nestopia-online/">Настройка игры по сети Интернет</a></h5>
                             <p>живым человеком, а не компьютером, но все ваши друзья заняты? А вам играть ой как охота? Тогда можно поискать игроков на уже созданых игровых серверах.созданых игровых серверах. </p>
                         </div>
                     </div>
@@ -157,7 +157,7 @@ Template Name: Main Page
                 </div>
             </div>
             <div class="site-review">
-                <p>Dendy — <strong>игровая приставка</strong>, неофициальный аппаратный клон консоли третьего поколения Famicom (в США и Европе известной как Nintendo Entertainment System) японской фирмы Nintendo. В основу Dendy был положен японский конструктив аппаратной части и формат картриджа, несколько <strong>игровая приставка</strong> отличавшийся от американского. Dendy выпускалась с конца 1992 года компанией Steepler[1], собиралась в Тайване из китайских комплектующих по заказу Steepler и была распространена в республиках бывшего СССР, особенно в России, на Украине и в Казахстане. Поскольку на постсоветском пространстве NES официально никогда не выпускалась, Dendy, которая была широко распространена и доступна по цене, в своё время снискала большую популярность.</p>
+
             </div>
         </section>
         <div class="clear-both"></div>

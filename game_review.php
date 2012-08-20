@@ -1,6 +1,8 @@
 <!-- Шаблон для вывода игрового обзора, с рейтингом и сбором всех картинок поста в слайдер -->
 <div class="single-game complete-block">
-    <div class="blue-head-block"><?php the_title() ?></div>
+    <div class="blue-head-block">
+        <h1><?php the_title() ?></h1>
+    </div>
     <div class="block-content">
         <?
         $img_data = getPostImages();
@@ -10,6 +12,7 @@
                     <div class="slide-border">
                         <div class="slides_container">
                             <?php foreach($img_data as $img) : ?>
+
                                 <div class="slide">
                                     <img src="<?php echo $img['url']?>" alt="<?php echo $img['alt'] ?>" width="760" height="450">
                                 </div>

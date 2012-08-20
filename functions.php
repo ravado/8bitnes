@@ -80,8 +80,9 @@
                 $img = 'game slide';
             }
         } elseif ($kind == 'rev') {
-            preg_match('|<div class="gameReview">(.*)</div>|isU', $post_content, $reviews);
-            $img = strip_tags(mb_substr($reviews[1],0,100)).'...';
+            preg_match('|<div class="gameReview">(.*?)</div>|isU', $post_content, $reviews);
+            $clear = strip_tags($reviews[1]);
+            $img = mb_substr($clear,0,100) .'...';
             if(empty($img)) {
                 $img = 'Нет описания :(';
             }
@@ -94,7 +95,7 @@
         global $post;
         $temp = array();
         $img_data = array();
-        preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $images, PREG_SET_ORDER);
+        preg_match_all('/<img(?:\\s[^<>]*?)?\\bsrc\\s*=\\s*(?|"([^"]*)"|\'([^\']*)\'|([^<>\'"\\s]*))[^<>]*>/i', $post->post_content, $images, PREG_SET_ORDER);
         if(empty($images)) {
             $img['url'] = false;
         } else {
@@ -173,7 +174,7 @@
                      INNER JOIN wp_term_taxonomy ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
                      INNER JOIN wp_terms ON wp_term_taxonomy.term_id = wp_terms.term_id
                 WHERE wp_posts.post_status = 'publish' and wp_posts.post_type='post' AND wp_terms.name='post-format-image'
-                ORDER BY wp_posts.post_views DESC
+                ORDER BY wp_posts.post_rating DESC
                 LIMIT ".$count);
         return $popular_games;
     }

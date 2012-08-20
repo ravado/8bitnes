@@ -1,6 +1,6 @@
 <? get_header() ?>
 <div id="content">
-    <? $theme_dir = get_template_directory_uri();?>
+    <? $theme_dir = get_template_directory_uri(); ?>
     <div id="fixed-content">
         <section id="sidebar-left">
             <? get_sidebar(); ?>
@@ -8,8 +8,11 @@
         <section id="main-content">
             <? if (have_posts()) : while (have_posts()) : the_post(); ?>
             <? increaseViews();
-                if(get_post_format($post->ID) == 'image') get_template_part('game_review');
-                else get_template_part('default_post');
+                if($post->post_status == 'publish') {
+                    if(get_post_format($post->ID) == 'image') get_template_part('game_review');
+                    else get_template_part('default_post');
+                } else {}
+
             ?>
             <input type="hidden" id="post_id" value="<?= get_the_ID() ?>">
             <? endwhile; ?>
@@ -25,7 +28,7 @@
                         'order' => 'DESC',
                         'orderby' => 'rand',
                         'posts_per_page' => 4,
-                        'tag' => 'dendy',
+                        'tag' => 'dendy-games',
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'post_format',

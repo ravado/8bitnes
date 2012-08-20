@@ -5,9 +5,13 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="viewport" content="width=device-width" />
         <title><?php bloginfo( 'name' ); ?><?php wp_title(); ?></title>
+        <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico" />
         <link href='http://fonts.googleapis.com/css?family=Russo+One|Press+Start+2P|Play&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet/less" href="<?= $theme_dir; ?>/style.css">
+
+<!--        <link rel="stylesheet/less" href="--><?//= $theme_dir; ?><!--/style.css">-->
+
         <link rel="stylesheet" href="<?= $theme_dir; ?>/css/reset.css">
+        <link rel="stylesheet" href="<?=$theme_dir; ?>/style.css">
         <link rel="stylesheet" href="<?= $theme_dir; ?>/css/global.css">
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.cookies.js"></script>

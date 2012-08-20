@@ -13,7 +13,7 @@
                     ?>
                     <header class="blue-head-block">Все игры</header>
                     <div class="block-content">
-                        <? query_posts('tag=dendy&paged='.$paged)?>
+                        <? query_posts('tag=dendy-games&paged='.$paged)?>
                         <? while (have_posts()) : the_post(); ?>
                             <div class="game-item">
                                 <header class="head-orange">

@@ -25,7 +25,7 @@
                         'order' => 'DESC',
                         'orderby' => 'rand',
                         'posts_per_page' => 4,
-                        'tag' => 'dendy',
+                        'tag' => 'dendy-games',
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'post_format',
