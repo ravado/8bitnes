@@ -10,16 +10,15 @@
         <link rel="stylesheet" href="<?= $theme_dir; ?>/css/reset.css">
         <link rel="stylesheet" href="<?=$theme_dir; ?>/style.css">
         <link rel="stylesheet" href="<?= $theme_dir; ?>/css/global.css">
+        <!--[if lt IE 10]>
+           <link href="/wp-content/themes/8bitnes/css/ie.css" rel="stylesheet" type="text/css">
+        <![endif]-->
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
         
 <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.cookies.js"></script>        
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/slides.js"></script>
 <script type="text/javascript" src="<?= $theme_dir; ?>/js/main.js"></script>
-
-
-
-
 
 <!--<script type="text/javascript">
             var reformalOptions = {

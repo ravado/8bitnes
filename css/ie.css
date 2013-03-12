@@ -1,0 +1,31 @@
+.blue-head-block {
+    background: #2871ae;
+    border: 2px solid #000000;
+}
+
+.head-orange {
+    background: #f7b60f;
+    border: 2px solid #482400;
+}
+
+.submenu-content {
+    background: #ffffff;
+    border: 2px solid #000000 !important;
+    padding: 2px;
+}
+
+.search-bar fieldset {
+    background: #e7e7e7;
+    border: 2px solid #333;
+    padding: 2px;
+}
+.search-bar input {
+    background: #e7e7e7;
+    height: 20px;
+}
+
+.slide-border {
+    background: #ffffff;
+    border: 3px solid #000000;
+    padding: 20px;
+}
