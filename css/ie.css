@@ -1,3 +1,7 @@
+a {
+    text-decoration: none !important;
+}
+
 .blue-head-block {
     background: #2871ae;
     border: 2px solid #000000;
