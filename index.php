@@ -6,7 +6,7 @@
             <? get_sidebar(); ?>
         </section>
         <section id="main-content">
-            <div class="random-games complete-block">
+            <div class="complete-block">
                 <?
                 $paged = get_query_var('paged');
                 if(have_posts()):

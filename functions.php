@@ -7,6 +7,9 @@
     add_action('wp_ajax_change_rating', 'change_post_rating');
     add_action('wp_ajax_nopriv_change_rating', 'change_post_rating');
 
+    // Изменение результатов голосования администратором
+    add_action('wp_ajax_change_voting_result', 'change_voting_result');
+
     // Изменение рейтинга записи
     function change_post_rating() {
         $post_id = $_POST['post_id'];
@@ -20,6 +23,23 @@
         $temp['rating'] = round($new_rating,1);
         $temp['votes_count'] = $votes_count;
         echo json_encode($temp);
+        die();
+    }
+
+    // Изменяем результаты голосования (и количество проголосовавших и оценку итоговую)
+    function change_voting_result() {
+        $post_id = $_POST['post_id'];
+        $rating_fractional_part = rand(10,100)/100;
+        $votes_count_fractional_part = rand(0,100);
+        $new_rating = (int)$_POST['rating'] + $rating_fractional_part;
+        $new_votes_count = (int)$_POST['votes_count'] + $votes_count_fractional_part;
+        global $wpdb;
+        $wpdb->query("UPDATE $wpdb->posts SET post_rating = " .$new_rating ." , votes_count = " .$new_votes_count ." WHERE ID =".$post_id);
+        echo json_encode(array(
+            "status" => "ok",
+            "new_rating" => $new_rating,
+            "new_votes_count" => $new_votes_count
+        ));
         die();
     }
 

@@ -3,7 +3,7 @@
 
 <div id="footer">
     <div id="fixed-footer">
-        <p>Emulroom © 2012 all rights reserved</p>
+        <p>Emulroom © 2012</p>
     </div>
 </div>
 <!-- close footer -->

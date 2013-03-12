@@ -1,40 +1,24 @@
-<?
-/*
-Template Name: Main Page
-*/
-?>
-<? get_header(); ?>
-<div id="content" xmlns="http://www.w3.org/1999/html">
-    <? $theme_dir = get_template_directory_uri();?>
-    <div id="fixed-content">
-        <section id="sidebar-left">
-        <? get_sidebar(); ?>
-        </section>
-        <section id="main-content">
-            <div id="container">
-                <div id="example">
-                    <div id="slides">
-                        <div class="slide-border">
-                            <div class="slides_container">
-                                <? foreach (getTopGames(5) as $top_game ):?>
-                                <div class="slide">
-                                    <a href="<? echo get_permalink($top_game->ID); ?>" title="<? echo $top_game->post_title; ?>" >
-                                        <img src="<? contentPart('url',$top_game->post_content) ?>" width="700" height="380" alt="<? contentPart('alt',$top_game->post_content); ?>">
-                                    </a>
-                                    <div class="caption">
-                                        <a href="<?= get_permalink($top_game->ID); ?>">
-                                            <p><? $title = explode("/", $top_game->post_title); echo $title[0]; ?></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <? endforeach;?>
-                            </div>
-                        </div>
-                        <a href="#" class="prev"></a>
-                        <a href="#" class="next"></a>
-                    </div>
-                </div>
-            </div><!--end slider-->
+<? /* Template Name: Main Page */ ?> <? get_header(); ?> <div id="content"
+xmlns="http://www.w3.org/1999/html">     <? $theme_dir =
+get_template_directory_uri();?>     <div id="fixed-content">         <section
+id="sidebar-left">         <? get_sidebar(); ?>         </section>
+<section id="main-content">             <div id="container">
+<div id="example">                     <div id="slides">
+<div class="slide-border">                             <div
+class="slides_container">                                 <? foreach
+(getTopGames(10) as $top_game ):?>                                 <div
+class="slide">                                     <a href="<? echo
+get_permalink($top_game->ID); ?>" title="<? echo $top_game->post_title; ?>" >
+<img src="<? contentPart('url',$top_game->post_content) ?>" width="700"
+height="380" alt="<? contentPart('alt',$top_game->post_content); ?>">
+</a>                                     <div class="caption">
+<a href="<?= get_permalink($top_game->ID); ?>">
+<p><? $title = explode("/", $top_game->post_title); echo $title[0]; ?></p>
+</a>                                     </div>
+</div>                                 <? endforeach;?>
+</div>                         </div>                         <a href="#"
+class="prev"></a>                         <a href="#" class="next"></a>
+</div>                 </div>             </div><!--end slider-->
 
             <div class="popular-games complete-block">
                 <header class="blue-head-block">Популярные игры</header>
@@ -143,14 +127,14 @@ Template Name: Main Page
                         <div class="useful-icon"><img src="<?=$theme_dir?>/img/lan2.png" alt=""></div>
                         <div class="useful-descr">
                             <h5><a href="http://www.emulroom.com/lan-play/">Настройка игры по локальной сети</a></h5>
-                            <p>Часто игра в одиночку очень быстро надоедает, а друг Что же делать? Есть выход. Можно <strong>настроить сетевую игру</strong> между двумя, тремя или большим количествомемя или большим количеством компьютеров. </p>
+                            <p>Часто игра в одиночку очень быстро надоедает, а друг Что же делать? Есть выход. Можно <strong>настроить сетевую игру</strong> между двумя, тремя или большим количеством компьютеров. </p>
                         </div>
                     </div>
                     <div class="useful-item">
                         <div class="useful-icon"><img src="<?=$theme_dir?>/img/web2.png" alt=""></div>
                         <div class="useful-descr">
                             <h5><a href="http://www.emulroom.com/emulators/dendy-emulators/nestopia-dendy-emulators/nestopia-online/">Настройка игры по сети Интернет</a></h5>
-                            <p>живым человеком, а не компьютером, но все ваши друзья заняты? А вам играть ой как охота? Тогда можно поискать игроков на уже созданых игровых серверах.созданых игровых серверах. </p>
+                            <p>Хочется сыграть в Денди с живым человеком, а не компьютером, но все ваши друзья заняты? А вам играть ой как охота? Тогда можно поискать игроков на уже созданных игровых серверах.</p>
                         </div>
                     </div>
                     <div class="clear-both"></div>

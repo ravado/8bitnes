@@ -25,7 +25,7 @@
 		return this.each(function(){
 			// wrap slides in control container, make sure slides are block level
 			$('.' + option.container, $(this)).children().wrapAll('<div class="slides_control"/>');
-			
+
 			var elem = $(this),
 				control = $('.slides_control',elem),
 				total = control.children().size(),
@@ -35,7 +35,7 @@
 				effect = option.effect.indexOf(',') < 0 ? option.effect : option.effect.replace(' ', '').split(',')[0],
 				paginationEffect = option.effect.indexOf(',') < 0 ? effect : option.effect.replace(' ', '').split(',')[1],
 				next = 0, prev = 0, number = 0, current = 0, loaded, active, clicked, position, direction, imageParent, pauseTimeout, playInterval;
-			
+
 			// is there only one slide?
 			if (total < 2) {
 				// Fade in .slides_container
@@ -77,11 +77,11 @@
 							// get next from current - 1
 							next = current - 1;
 							// if first slide, set next to last slide
-							next = next === -1 ? total-1 : next;								
+							next = next === -1 ? total-1 : next;
 							// set position of next slide to left of previous
-							position = 0;								
+							position = 0;
 							// distance to slide based on width of slides
-							direction = 0;		
+							direction = 0;
 							// store new current slide
 							current = next;
 						break;
@@ -122,11 +122,11 @@
 										control.children(':eq('+ prev +')', elem).css({
 											display: 'none',
 											zIndex: 0
-										});								
+										});
 										// reset z index
 										control.children(':eq('+ next +')', elem).css({
 											zIndex: 0
-										});									
+										});
 										// end of animation
 										option.animationComplete(next + 1);
 										active = false;
@@ -136,11 +136,11 @@
 									control.children(':eq('+ prev +')', elem).css({
 										display: 'none',
 										zIndex: 0
-									});									
+									});
 									// reset zindex
 									control.children(':eq('+ next +')', elem).css({
 										zIndex: 0
-									});									
+									});
 									// end of animation
 									option.animationComplete(next + 1);
 									active = false;
@@ -167,7 +167,7 @@
 											$(this).get(0).style.removeAttribute('filter');
 										}
 									});
-								}									
+								}
 								// end of animation
 								option.animationComplete(next + 1);
 								active = false;
@@ -239,7 +239,7 @@
 					}
 				}
 			} // end animate function
-			
+
 			function stop() {
 				// clear interval from stored id
 				clearInterval(elem.data('interval'));
@@ -268,47 +268,47 @@
 					stop();
 				}
 			}
-				
+
 			// 2 or more slides required
 			if (total < 2) {
 				return;
 			}
-			
+
 			// error corection for start slide
 			if (start < 0) {
 				start = 0;
 			}
-			
+
 			if (start > total) {
 				start = total - 1;
 			}
-					
+
 			// change current based on start option number
 			if (option.start) {
 				current = start;
 			}
-			
+
 			// randomizes slide order
 			if (option.randomize) {
 				control.randomize();
 			}
-			
+
 			// make sure overflow is hidden, width is set
 			$('.' + option.container, elem).css({
 				overflow: 'hidden',
 				// fix for ie
 				position: 'relative'
 			});
-			
+
 			// set css for slides
 			control.children().css({
 				position: 'absolute',
-				top: 0, 
+				top: 0,
 				left: control.children().outerWidth(),
 				zIndex: 0,
 				display: 'none'
 			 });
-			
+
 			// set css for control div
 			control.css({
 				position: 'relative',
@@ -319,7 +319,7 @@
 				// center control to slide
 				left: -width
 			});
-			
+
 			// show slides
 			$('.' + option.container, elem).css({
 				display: 'block'
@@ -334,17 +334,17 @@
 					height: control.children(':eq('+ start +')').outerHeight()
 				},option.autoHeightSpeed);
 			}
-			
+
 			// checks if image is loaded
 			if (option.preload && control.find('img:eq(' + start + ')').length) {
 				// adds preload image
 				$('.' + option.container, elem).css({
 					background: 'url(' + option.preloadImage + ') no-repeat 50% 50%'
 				});
-				
+
 				// gets image src, with cache buster
 				var img = control.find('img:eq(' + start + ')').attr('src') + '?' + (new Date()).getTime();
-				
+
 				// check if the image has a parent
 				if ($('img', elem).parent().attr('class') != 'slides_control') {
 					// If image has parent, get tag name
@@ -380,7 +380,7 @@
 					option.slidesLoaded();
 				});
 			}
-			
+
 			// click slide for next
 			if (option.bigTarget) {
 				// set cursor to pointer
@@ -392,9 +392,9 @@
 					// animate to next on slide click
 					animate('next', effect);
 					return false;
-				});									
+				});
 			}
-			
+
 			// pause on mouseover
 			if (option.hoverPause && option.play) {
 				control.bind('mouseover',function(){
@@ -406,13 +406,13 @@
 					pause();
 				});
 			}
-			
+
 			// generate next/prev buttons
 			if (option.generateNextPrev) {
 				$('.' + option.container, elem).after('<a href="#" class="'+ option.prev +'">Prev</a>');
 				$('.' + option.prev, elem).after('<a href="#" class="'+ option.next +'">Next</a>');
 			}
-			
+
 			// next button
 			$('.' + option.next ,elem).click(function(e){
 				e.preventDefault();
@@ -421,7 +421,7 @@
 				}
 				animate('next', effect);
 			});
-			
+
 			// previous button
 			$('.' + option.prev, elem).click(function(e){
 				e.preventDefault();
@@ -430,7 +430,7 @@
 				}
 				animate('prev', effect);
 			});
-			
+
 			// generate pagination
 			if (option.generatePagination) {
 				// create unordered list
@@ -451,17 +451,17 @@
 					number++;
 				});
 			}
-			
+
 			// add current class to start slide pagination
 			$('.' + option.paginationClass + ' li:eq('+ start +')', elem).addClass(option.currentClass);
-			
-			// click handling 
+
+			// click handling
 			$('.' + option.paginationClass + ' li a', elem ).click(function(){
 				// pause slideshow
 				if (option.play) {
 					 pause();
 				}
-				// get clicked, pass to animate function					
+				// get clicked, pass to animate function
 				clicked = $(this).attr('href').match('[^#/]+$');
 				// if current slide equals clicked, don't do anything
 				if (current != clicked) {
@@ -469,14 +469,14 @@
 				}
 				return false;
 			});
-			
-			// click handling 
+
+			// click handling
 			$('a.link', elem).click(function(){
 				// pause slideshow
 				if (option.play) {
 					 pause();
 				}
-				// get clicked, pass to animate function					
+				// get clicked, pass to animate function
 				clicked = $(this).attr('href').match('[^#/]+$') - 1;
 				// if current slide equals clicked, don't do anything
 				if (current != clicked) {
@@ -484,7 +484,7 @@
 				}
 				return false;
 			});
-		
+
 			if (option.play) {
 				// set interval
 				playInterval = setInterval(function() {
@@ -495,7 +495,7 @@
 			}
 		});
 	};
-	
+
 	// default options
 	$.fn.slides.option = {
 		preload: false, // boolean, Set true to preload images in an image based slideshow
@@ -527,7 +527,7 @@
 		animationComplete: function(){}, // Function called at the completion of animation
 		slidesLoaded: function() {} // Function is called when slides is fully loaded
 	};
-	
+
 	// Randomize slide order on load
 	$.fn.randomize = function(callback) {
 		function randomizeOrder() { return(Math.round(Math.random())-0.5); }
@@ -540,7 +540,7 @@
 				var indices = [];
 				for (i=0;i<childCount;i++) { indices[indices.length] = i; }
 				indices = indices.sort(randomizeOrder);
-				$.each(indices,function(j,k) { 
+				$.each(indices,function(j,k) {
 					var $child = $children.eq(k);
 					var $clone = $child.clone(true);
 					$clone.show().appendTo($this);
