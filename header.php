@@ -5,23 +5,23 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="viewport" content="width=device-width" />
         <title><?php bloginfo( 'name' ); ?><?php wp_title(); ?></title>
-        <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico" />
         <link href='http://fonts.googleapis.com/css?family=Russo+One|Press+Start+2P|Play&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
-<!--        <link rel="stylesheet/less" href="--><?//= $theme_dir; ?><!--/style.css">-->
 
         <link rel="stylesheet" href="<?= $theme_dir; ?>/css/reset.css">
         <link rel="stylesheet" href="<?=$theme_dir; ?>/style.css">
         <link rel="stylesheet" href="<?= $theme_dir; ?>/css/global.css">
-        <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.js"></script>
-        <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.cookies.js"></script>
-        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+        
+<script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.js"></script>
+        <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.cookies.js"></script>        
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/slides.js"></script>
-        <script type="text/javascript" src="<?= $theme_dir; ?>/js/main.js"></script>
+<script type="text/javascript" src="<?= $theme_dir; ?>/js/main.js"></script>
 
 
-        <!-- reformal -->
-        <!--<script type="text/javascript">
+
+
+
+<!--<script type="text/javascript">
             var reformalOptions = {
                 project_id: 70108,
                 project_host: "emulroom.reformal.ru",
@@ -40,9 +40,6 @@
                 document.getElementsByTagName('head')[0].appendChild(script);
             })();
         </script><noscript><a href="http://reformal.ru"><img src="http://media.reformal.ru/reformal.png" /></a><a href="http://emulroom.reformal.ru">Oтзывы и предложения для Emulroom</a></noscript>-->
-
-
-
 
         <?php wp_head(); ?>
     </head>

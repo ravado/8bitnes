@@ -88,11 +88,6 @@ $(document).ready(function() {
         if(e.keyCode == 13){
             $("#frm-search").submit();
         }
-
-        if($(this).val().length >= 3) {
-            console.log($(this).val());
-        }
-
     });
 
     // Перехват сабмита формы поиска

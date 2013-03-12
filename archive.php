@@ -6,10 +6,7 @@
             <? get_sidebar(); ?>
         </section>
         <section id="main-content">
-            <div>
-                Сортировать по:
-            </div>
-            <div class="complete-block">
+            <div class="random-games complete-block">
                 <div class="blue-head-block">
                     <?php if ( is_day() ) : ?>
                     <?php printf( __( 'Daily Archives: %s', 'twentyeleven' ), '<span>' . get_the_date() . '</span>' ); ?>
@@ -22,7 +19,6 @@
                     <? else: echo 'Архив';?>
                     <? endif; ?>
                 </div>
-
                 <div class="block-content">
                     <? if(have_posts()): ?>
                         <? while (have_posts()) : the_post(); ?>
