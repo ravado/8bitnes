@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="<?= $theme_dir; ?>/css/global.css">
         <!--[if lt IE 10]>
            <link href="/wp-content/themes/8bitnes/css/ie.css" rel="stylesheet" type="text/css">
+           <script type="text/javascript" src="/wp-content/themes/8bitnes/js/ie.js"></script>
         <![endif]-->
 <!--<script src="http://www.google.com/jsapi" type="text/javascript"></script>-->
         
