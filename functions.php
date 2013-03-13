@@ -5,28 +5,28 @@
 
     // Добавление екшенов для работы аякс запроса
     add_action('wp_ajax_change_rating', 'change_post_rating');
-    add_action('wp_ajax_nopriv_change_rating', 'change_post_rating');
-
+    // add_action('wp_ajax_nopriv_change_rating', 'change_post_rating'); не помню зачем нужно, может и не актуально
     // Изменение результатов голосования администратором
     add_action('wp_ajax_change_voting_result', 'change_voting_result');
 
-    // Изменение рейтинга записи
+    // Изменение рейтинга записи пользователем
+    // Формула расчета: (количество голосов * оценка в базе + новая оценка) / (всего голосов + новый голос)
     function change_post_rating() {
         $post_id = $_POST['post_id'];
         $new_mark = $_POST['mark'];
         global $wpdb;
-        $newtable = $wpdb->get_results( "SELECT post_rating, votes_count FROM $wpdb->posts WHERE ID=".$post_id);
-        $rating = $newtable[0]->post_rating;
-        $votes_count = $newtable[0]->votes_count;
-        $new_rating = round(($votes_count * $rating + $new_mark) / ($votes_count + 1), 3);
+        $post_record = $wpdb->get_results( "SELECT post_rating, votes_count FROM $wpdb->posts WHERE ID=".$post_id);
+        $rating = $post_record[0]->post_rating;
+        $votes_count = $post_record[0]->votes_count;;
+        $new_rating = round(($votes_count * $rating + $new_mark) / ($votes_count + 1), 5);
         $wpdb->query("UPDATE $wpdb->posts SET post_rating = " .$new_rating ." , votes_count = " .($votes_count + 1) ." WHERE ID =".$post_id);
-        $temp['rating'] = round($new_rating,1);
-        $temp['votes_count'] = $votes_count;
-        echo json_encode($temp);
+        $data['rating'] = round($new_rating,2);
+        $data['votes_count'] = $votes_count + 1;
+        echo json_encode($data);
         die();
     }
 
-    // Изменяем результаты голосования (и количество проголосовавших и оценку итоговую)
+    // Изменяем результаты голосования (и количество проголосовавших и оценку итоговую) админом
     function change_voting_result() {
         $post_id = $_POST['post_id'];
         $rating_fractional_part = rand(10,100)/100;
@@ -141,7 +141,7 @@
     function getPostRating() {
         global $wpdb;
         $newtable = $wpdb->get_results( "SELECT post_rating FROM $wpdb->posts WHERE ID=".get_the_ID());
-        $rating = round($newtable[0]->post_rating,1);
+        $rating = round($newtable[0]->post_rating,2);
         return $rating;
     }
 
@@ -194,7 +194,7 @@
                      INNER JOIN wp_term_taxonomy ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
                      INNER JOIN wp_terms ON wp_term_taxonomy.term_id = wp_terms.term_id
                 WHERE wp_posts.post_status = 'publish' and wp_posts.post_type='post' AND wp_terms.name='post-format-image'
-                ORDER BY wp_posts.post_rating DESC
+                ORDER BY wp_posts.post_views DESC
                 LIMIT ".$count);
         return $popular_games;
     }

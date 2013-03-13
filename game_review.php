@@ -54,7 +54,10 @@
                 <h5>Рейтинг:
                     <meta itemprop="bestRating" content="10">
                     <meta itemprop="ratingCount" content="<?=getRatingCount()?>">
-                    <span class="rating-value" itemprop="ratingValue"><?= getPostRating(); ?> </span>
+                    <span class="rating-value" itemprop="ratingValue"><?= getPostRating(); ?></span>
+                    <span style="color: #ccc;">
+                        (Голосов: <span class="votes-count"><?=getRatingCount()?></span>)
+                    </span>
                     <span class="already-voted" style="display: none;">Вы уже голосовали!</span>
                 </h5>
             </div>

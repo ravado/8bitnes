@@ -33,7 +33,7 @@
                                     <span class="item-rating">
                                         <? if(has_post_format('image')): ?>
                                             <span class="item-rating-icon"></span>
-                                            <span class="rating"><? echo $post->post_rating; ?></span>
+                                            <span class="rating"><?=round($post->post_rating, 2)?></span>
                                         <? endif; ?>
                                     </span>
                                     <span class="item-more">

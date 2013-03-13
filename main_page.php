@@ -58,7 +58,7 @@
                         <footer class="item-info">
                                 <span class="item-rating">
                                     <span class="item-rating-icon"></span>
-                                    <span class="rating"><? echo $popular_game->post_rating ?></span>
+                                    <span class="rating"><?=round($popular_game->post_rating, 2)?></span>
                                 </span>
                                 <span class="item-more">
                                     <a href="<?=get_permalink($popular_game->ID); ?>" class="lnk-more">Подробнее</a>
@@ -109,7 +109,7 @@
                         <footer class="item-info">
                                 <span class="item-rating">
                                     <span class="item-rating-icon"></span>
-                                    <span class="rating"><? echo $post->post_rating; ?></span>
+                                    <span class="rating"><?=round($post->post_rating, 2)?></span>
                                 </span>
                                 <span class="item-more">
                                     <a class="lnk-more" href="<? the_permalink(); ?>">Подробнее</a>

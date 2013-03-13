@@ -168,6 +168,7 @@ $(document).ready(function() {
             // обратите внимание переменная  user_votes должна задаваться без var, т.к. в этом случае она будет глобальной и мы сможем к ней обратиться из другой ф-ции (нужна будет при клике на оценке.
             $('#raiting_hover').width(user_votes*30);
         });
+
         // отправка
         $('#raiting').click(function(){
             $('#raiting_info h5, #raiting_info img').toggle();
@@ -178,6 +179,8 @@ $(document).ready(function() {
             }, function(data) {
                 $('#raiting').css('cursor','default');
                 $("#raiting_info h5 .rating-value").html(data.rating);
+                console.log("votes " + data.votes_count);
+                $("#raiting_info .votes-count").html(data.votes_count);
                 $('#raiting_votes').width(Math.ceil((data.rating*30)));
                 $('#raiting_votes').show();
                 $('#raiting_info h5, #raiting_info img').toggle();
