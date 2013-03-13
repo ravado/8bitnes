@@ -838,6 +838,11 @@ input.gsc-input {
     color: rgb(131, 230, 255);
     border: none;
 }
+.site-info .developers a:hover {
+    color: #46d90c;
+    border-bottom: 1px solid #ccc;
+}
+
 .site-info .trademark {
     padding: 0 40px 0 20px;
     float: right;

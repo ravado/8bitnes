@@ -5,7 +5,7 @@
     <div id="fixed-footer">
         <div class="content"></div>
         <div class="site-info">
-            <div class="developers">Сайт разработан в <a href="http://kubeex.com">студии правильных решений</a></div>
+            <div class="developers">Сайт разработан в <a href="http://kubeex.com">"Студии правильных решений"</a></div>
             <div class="trademark">Emulroom © 2012 Денди игры и эмуляторы</div>
         </div>
     </div>
