@@ -3,7 +3,11 @@
 
 <div id="footer">
     <div id="fixed-footer">
-        <p>Emulroom © 2012</p>
+        <div class="content"></div>
+        <div class="site-info">
+            <div class="developers">Сайт разработан в <a href="http://kubeex.com">студии правильных решений</a></div>
+            <div class="trademark">Emulroom © 2012 Денди игры и эмуляторы</div>
+        </div>
     </div>
 </div>
 <!-- close footer -->
