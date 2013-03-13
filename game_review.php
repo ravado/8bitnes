@@ -1,6 +1,6 @@
 <!-- vk comments -->
-<script type="text/javascript" src="//vk.com/js/api/openapi.js?56"></script>
-<script type="text/javascript">VK.init({apiId: 3033594, onlyWidgets: true});</script>
+<!--<script type="text/javascript" src="//vk.com/js/api/openapi.js?56"></script>-->
+<!--<script type="text/javascript">VK.init({apiId: 3033594, onlyWidgets: true});</script>-->
 <? if(is_user_logged_in()): ?>
     <script type="text/javascript">
         function changeVotingResult() {
@@ -30,6 +30,10 @@
             <div id="example" class="simple-slider">
                 <div id="slides">
                     <div class="slide-border">
+                        <div class="slider-navigate">
+                            <div class="slide-prev prev"></div>
+                            <div class="slide-next next"></div>
+                        </div>
                         <div class="slides_container">
                             <?php foreach($img_data as $img) : ?>
 

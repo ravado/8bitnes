@@ -27,7 +27,7 @@ function some() {
     });
     $(".gsc-orderby-label").text('Сортировать по:');
 }
-// Поиск
+/*// Поиск
 google.load('search', '1', {language : 'ru', style : google.loader.themes.V2_DEFAULT});
 google.setOnLoadCallback(function() {
     var customSearchOptions = {};
@@ -43,7 +43,7 @@ google.setOnLoadCallback(function() {
     customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
     customSearchControl.draw('search-box');
     timer_id = setInterval('some()', 10);
-}, true);
+}, true);*/
 
 
 
@@ -193,4 +193,9 @@ $(document).ready(function() {
         });
         console.log('already voted');
     }
+
+
+
+    // Нажатие на кнопку "следующий слайд"
+    $("")
 });
