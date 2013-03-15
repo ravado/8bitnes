@@ -75,6 +75,17 @@
         ));
     }
 
+    // Проверка существует ли файл по заданому URL (довольно длиельная операция)
+    function isUrlFileExist($url) {
+        $handle = @fopen($url,'r');
+        if($handle !== false) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     // Вывод информации о первой картинке найденной в посте
     // $kind = 'url' - ссылка на изображение, 'alt' - ее альтернативная подпись
     function contentPart($kind, $content = 'none') {
@@ -90,6 +101,8 @@
         if($kind == 'url') {
             preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $url);
             $img = $url[1];
+            // Указываем путь к уменьшеной копии картинки
+            $img = dirname($img) ."/thumb.png";
             if(empty($img)) {
                 $img = $theme_url ."/img/img-not-found.jpeg";
             }

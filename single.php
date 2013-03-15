@@ -18,10 +18,10 @@
             <? endwhile; ?>
             <? endif; ?>
 
-            <!--<div class="random-games complete-block">
+            <div class="random-games complete-block">
                 <div class="blue-head-block">Случайные игры</div>
                 <div class="block-content">
-                    <?/*
+                    <?
                     $arg = array(
                         'post_type'=> 'post',
                         'post_status' => 'publish',
@@ -36,37 +36,37 @@
                                 'terms' => array( 'post-format-image' )
                                 )
                             ));
-                    */?>
-                    <?/* query_posts($arg); */?>
-                    <?/* while (have_posts()) : the_post(); */?>
+                    ?>
+                    <? query_posts($arg); ?>
+                    <? while (have_posts()) : the_post(); ?>
                         <div class="game-item">
                             <header class="head-orange">
-                                <h3><a href="<?/* the_permalink(); */?>"><?/* the_title(); */?></a></h3>
+                                <h3><a href="<? the_permalink(); ?>"><? the_title(); ?></a></h3>
                             </header>
                             <div class="item-content">
                                 <div class="item-image">
-                                    <a href="<?/* the_permalink(); */?>">
-                                        <img src="<?/* contentPart('url'); */?>" alt="<?/* contentPart('alt'); */?>" width="176" height="120">
+                                    <a href="<? the_permalink(); ?>">
+                                        <img src="<? contentPart('url'); ?>" alt="<? contentPart('alt'); ?>" width="176" height="120">
                                     </a>
                                 </div>
                                 <div class="item-decription">
-                                    <p><?/* contentPart('rev'); */?></p>
+                                    <p><? contentPart('rev'); ?></p>
                                 </div>
                             </div>
                             <footer class="item-info">
                                 <span class="item-more">
-                                    <a href="<?/* the_permalink(); */?>" class="lnk-more">Подробнее</a>
+                                    <a href="<? the_permalink(); ?>" class="lnk-more">Подробнее</a>
                                 </span>
                                 <span class="item-rating">
                                     <span class="item-rating-icon"></span>
-                                    <span class="rating"><?/*= $post->post_rating; */?></span>
+                                    <span class="rating"><?=round($post->post_rating, 2)?></span>
                                 </span>
                             </footer>
                         </div>
-                    <?/* endwhile; */?>
+                    <? endwhile; ?>
                     <div class="clear-both"></div>
                 </div>
-            </div>-->
+            </div>
             <div class="comments complete-block">
                 <div class="blue-head-block">Комментарии</div>
                 <div class="block-content"  id="vk_comments"></div>
