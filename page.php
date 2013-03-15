@@ -59,7 +59,7 @@
                             <footer class="item-info">
                                 <span class="item-rating">
                                     <span class="item-rating-icon"></span>
-                                    <span class="rating"><?= $post->post_rating; ?></span>
+                                    <span class="rating"><?=round($post->post_rating, 2)?></span>
                                 </span>
                                 <span class="item-more">
                                     <a href="<? the_permalink(); ?>" class="lnk-more">Подробнее</a>

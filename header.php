@@ -5,7 +5,7 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="viewport" content="width=device-width" />
         <title><?php bloginfo( 'name' ); ?><?php wp_title(); ?></title>
-<!--        <link href='http://fonts.googleapis.com/css?family=Russo+One|Press+Start+2P|Play&subset=latin,cyrillic' rel='stylesheet' type='text/css'>-->
+        <link href='http://fonts.googleapis.com/css?family=Russo+One|Press+Start+2P|Play&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
         <link rel="stylesheet" href="<?= $theme_dir; ?>/css/reset.css">
         <link rel="stylesheet" href="<?=$theme_dir; ?>/style.css">
@@ -14,7 +14,7 @@
            <link href="/wp-content/themes/8bitnes/css/ie.css" rel="stylesheet" type="text/css">
            <script type="text/javascript" src="/wp-content/themes/8bitnes/js/ie.js"></script>
         <![endif]-->
-<!--<script src="http://www.google.com/jsapi" type="text/javascript"></script>-->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
         
 <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.cookies.js"></script>        
