@@ -6,6 +6,7 @@
             <? get_sidebar(); ?>
         </section>
         <section id="main-content">
+            <? get_template_part('alphabet') ?>
             <div class="complete-block">
                 <div class="blue-head-block">
                     <?php if ( is_day() ) : ?>

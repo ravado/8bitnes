@@ -5,6 +5,7 @@
             <?php get_sidebar(); ?>
         </section>
         <section id="main-content">
+            <? get_template_part('alphabet') ?>
             <div class="error-404 complete-block">
                 <div class="blue-head-block">Страница не найдена</div>
                 <div class="block-content">

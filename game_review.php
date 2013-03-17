@@ -17,7 +17,8 @@
             },"json");
         }
     </script>
-<? endif; ?>
+<? endif;?>
+<? get_template_part('alphabet') ?>
 <!-- Шаблон для вывода игрового обзора, с рейтингом и сбором всех картинок поста в слайдер -->
 <div class="single-game complete-block">
     <div class="blue-head-block">
