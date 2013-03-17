@@ -192,7 +192,11 @@ $(document).ready(function() {
     }
     else {
         $("#raiting").live('click', function() {
-            $("#raiting_info h5 .already-voted").fadeIn(500).delay(2000).fadeOut(1000);
+            var alreadyVoted = $("#raiting_info h5 .already-voted");
+            alreadyVoted.text('Вы уже голосовали!');
+            alreadyVoted.fadeIn(500).delay(2000).fadeOut(1000, function() {
+                alreadyVoted.text('');
+            });
         });
         console.log('already voted');
     }
