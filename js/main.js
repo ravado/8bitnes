@@ -228,4 +228,13 @@ $(document).ready(function() {
                otherBtns.find(".icon").addClass('disabled');
            }
     });
+
+
+    // Нажатие на букву алфавита (временно)
+    $(".alphabet li a").click(function() {
+        var currentLetter = $(this), othersLetter;
+        othersLetter = currentLetter.closest('.alphabet').find('li a').not(currentLetter);
+        othersLetter.removeClass('active');
+        currentLetter.addClass('active');
+    });
 });

@@ -8,65 +8,65 @@
         <section id="main-content">
             <div class="alphabet-block white-block">
                 <ul class="english-alphabet alphabet "  data-alphabet="en">
-                    <li><a href="">#</a></li>
-                    <li><a href="">a</a></li>
-                    <li><a href="">b</a></li>
-                    <li><a href="">c</a></li>
-                    <li><a href="">d</a></li>
-                    <li><a href="">e</a></li>
-                    <li><a href="">f</a></li>
-                    <li><a href="">g</a></li>
-                    <li><a href="">h</a></li>
-                    <li><a href="">i</a></li>
-                    <li><a href="">j</a></li>
-                    <li><a href="">k</a></li>
-                    <li><a href="">l</a></li>
-                    <li><a href="">m</a></li>
-                    <li><a href="">n</a></li>
-                    <li><a href="">o</a></li>
-                    <li><a href="">p</a></li>
-                    <li><a href="">r</a></li>
-                    <li><a href="">s</a></li>
-                    <li><a href="">t</a></li>
-                    <li><a href="">u</a></li>
-                    <li><a href="">v</a></li>
-                    <li><a href="">w</a></li>
-                    <li><a href="">x</a></li>
-                    <li><a href="">y</a></li>
-                    <li><a href="">z</a></li>
+                    <li><a>#</a></li>
+                    <li><a>a</a></li>
+                    <li><a>b</a></li>
+                    <li><a>c</a></li>
+                    <li><a>d</a></li>
+                    <li><a>e</a></li>
+                    <li><a>f</a></li>
+                    <li><a>g</a></li>
+                    <li><a>h</a></li>
+                    <li><a>i</a></li>
+                    <li><a>j</a></li>
+                    <li><a>k</a></li>
+                    <li><a>l</a></li>
+                    <li><a>m</a></li>
+                    <li><a>n</a></li>
+                    <li><a>o</a></li>
+                    <li><a>p</a></li>
+                    <li><a>r</a></li>
+                    <li><a>s</a></li>
+                    <li><a>t</a></li>
+                    <li><a>u</a></li>
+                    <li><a>v</a></li>
+                    <li><a>w</a></li>
+                    <li><a>x</a></li>
+                    <li><a>y</a></li>
+                    <li><a>z</a></li>
                     <li class="helper"></li>
                 </ul>
                 <ul class="russian-alphabet alphabet hidden" data-alphabet="ru">
-                    <li><a href="">#</a></li>
-                    <li><a href="">а</a></li>
-                    <li><a href="">б</a></li>
-                    <li><a href="">в</a></li>
-                    <li><a href="">г</a></li>
-                    <li><a href="">д</a></li>
-                    <li><a href="">е</a></li>
-                    <li><a href="">ж</a></li>
-                    <li><a href="">з</a></li>
-                    <li><a href="">и</a></li>
-                    <li><a href="">й</a></li>
-                    <li><a href="">к</a></li>
-                    <li><a href="">л</a></li>
-                    <li><a href="">м</a></li>
-                    <li><a href="">н</a></li>
-                    <li><a href="">о</a></li>
-                    <li><a href="">п</a></li>
-                    <li><a href="">р</a></li>
-                    <li><a href="">с</a></li>
-                    <li><a href="">т</a></li>
-                    <li><a href="">у</a></li>
-                    <li><a href="">ф</a></li>
-                    <li><a href="">х</a></li>
-                    <li><a href="">ц</a></li>
-                    <li><a href="">ч</a></li>
-                    <li><a href="">ш</a></li>
-                    <li><a href="">щ</a></li>
-                    <li><a href="">э</a></li>
-                    <li><a href="">ю</a></li>
-                    <li><a href="">я</a></li>
+                    <li><a>#</a></li>
+                    <li><a>а</a></li>
+                    <li><a>б</a></li>
+                    <li><a>в</a></li>
+                    <li><a>г</a></li>
+                    <li><a>д</a></li>
+                    <li><a>е</a></li>
+                    <li><a>ж</a></li>
+                    <li><a>з</a></li>
+                    <li><a>и</a></li>
+                    <li><a>й</a></li>
+                    <li><a>к</a></li>
+                    <li><a>л</a></li>
+                    <li><a>м</a></li>
+                    <li><a>н</a></li>
+                    <li><a>о</a></li>
+                    <li><a>п</a></li>
+                    <li><a>р</a></li>
+                    <li><a>с</a></li>
+                    <li><a>т</a></li>
+                    <li><a>у</a></li>
+                    <li><a>ф</a></li>
+                    <li><a>х</a></li>
+                    <li><a>ц</a></li>
+                    <li><a>ч</a></li>
+                    <li><a>ш</a></li>
+                    <li><a>щ</a></li>
+                    <li><a>э</a></li>
+                    <li><a>ю</a></li>
+                    <li><a>я</a></li>
                     <li class="helper"></li>
                 </ul>
                 <div class="switch-alphabet">

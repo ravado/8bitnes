@@ -872,6 +872,13 @@ input.gsc-input {
     border-bottom: 0;
     cursor: pointer;
 }
+.alphabet-block a.active {
+    color: #1073AE;
+}
+.alphabet-block a:active {
+    color: #1395df !important;
+}
+
 .alphabet-block a:hover {
     color: #1073AE;
 }
