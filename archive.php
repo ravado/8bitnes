@@ -6,7 +6,7 @@
             <? get_sidebar(); ?>
         </section>
         <section id="main-content">
-            <div class="random-games complete-block">
+            <div class="complete-block">
                 <div class="blue-head-block">
                     <?php if ( is_day() ) : ?>
                     <?php printf( __( 'Daily Archives: %s', 'twentyeleven' ), '<span>' . get_the_date() . '</span>' ); ?>
@@ -40,7 +40,7 @@
                                     <span class="item-rating">
                                         <? if(has_post_format('image')): ?>
                                             <span class="item-rating-icon"></span>
-                                            <span class="rating"><?= $post->post_rating; ?></span>
+                                            <span class="rating"><?=round($post->post_rating, 2)?></span>
                                         <? endif; ?>
                                     </span>
                                     <span class="item-more">

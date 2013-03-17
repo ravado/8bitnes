@@ -199,6 +199,29 @@ $(document).ready(function() {
 
 
 
-    // Нажатие на кнопку "следующий слайд"
-    $("")
+    // Нажатие на кнопку смены алфавита
+    $(".switch-alphabet a").click(function() {
+        var currentBtn = $(this), otherBtns = $(".switch-alphabet a").not(currentBtn);
+           if (currentBtn.hasClass('switcher') && !currentBtn.hasClass('lock')) {
+               var alphabetToSwitch, alphabetItem;
+               alphabetToSwitch = currentBtn.attr("data-switch-alphabet");
+               console.log("Alphabet to switch is: " + alphabetToSwitch);
+               alphabetItem = $("ul[data-alphabet='" + alphabetToSwitch + "']");
+               console.log("Finded " + alphabetItem.length + " alphabet items to switch");
+               otherBtns.addClass('lock');
+               console.log("lock buttons");
+
+               $(".alphabet").not(alphabetItem).fadeOut(100, 'swing', function() {
+                   console.log('fade outed');
+                   alphabetItem.fadeIn(100, 'swing', function() {
+                       console.log('fade inned');
+                       otherBtns.removeClass('lock');
+                       console.log("unlock buttons");
+                   });
+               });
+
+               currentBtn.find(".icon").removeClass('disabled');
+               otherBtns.find(".icon").addClass('disabled');
+           }
+    });
 });

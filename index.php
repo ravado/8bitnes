@@ -6,6 +6,83 @@
             <? get_sidebar(); ?>
         </section>
         <section id="main-content">
+            <div class="alphabet-block white-block">
+                <ul class="english-alphabet alphabet "  data-alphabet="en">
+                    <li><a href="">#</a></li>
+                    <li><a href="">a</a></li>
+                    <li><a href="">b</a></li>
+                    <li><a href="">c</a></li>
+                    <li><a href="">d</a></li>
+                    <li><a href="">e</a></li>
+                    <li><a href="">f</a></li>
+                    <li><a href="">g</a></li>
+                    <li><a href="">h</a></li>
+                    <li><a href="">i</a></li>
+                    <li><a href="">j</a></li>
+                    <li><a href="">k</a></li>
+                    <li><a href="">l</a></li>
+                    <li><a href="">m</a></li>
+                    <li><a href="">n</a></li>
+                    <li><a href="">o</a></li>
+                    <li><a href="">p</a></li>
+                    <li><a href="">r</a></li>
+                    <li><a href="">s</a></li>
+                    <li><a href="">t</a></li>
+                    <li><a href="">u</a></li>
+                    <li><a href="">v</a></li>
+                    <li><a href="">w</a></li>
+                    <li><a href="">x</a></li>
+                    <li><a href="">y</a></li>
+                    <li><a href="">z</a></li>
+                    <li class="helper"></li>
+                </ul>
+                <ul class="russian-alphabet alphabet hidden" data-alphabet="ru">
+                    <li><a href="">#</a></li>
+                    <li><a href="">а</a></li>
+                    <li><a href="">б</a></li>
+                    <li><a href="">в</a></li>
+                    <li><a href="">г</a></li>
+                    <li><a href="">д</a></li>
+                    <li><a href="">е</a></li>
+                    <li><a href="">ж</a></li>
+                    <li><a href="">з</a></li>
+                    <li><a href="">и</a></li>
+                    <li><a href="">й</a></li>
+                    <li><a href="">к</a></li>
+                    <li><a href="">л</a></li>
+                    <li><a href="">м</a></li>
+                    <li><a href="">н</a></li>
+                    <li><a href="">о</a></li>
+                    <li><a href="">п</a></li>
+                    <li><a href="">р</a></li>
+                    <li><a href="">с</a></li>
+                    <li><a href="">т</a></li>
+                    <li><a href="">у</a></li>
+                    <li><a href="">ф</a></li>
+                    <li><a href="">х</a></li>
+                    <li><a href="">ц</a></li>
+                    <li><a href="">ч</a></li>
+                    <li><a href="">ш</a></li>
+                    <li><a href="">щ</a></li>
+                    <li><a href="">э</a></li>
+                    <li><a href="">ю</a></li>
+                    <li><a href="">я</a></li>
+                    <li class="helper"></li>
+                </ul>
+                <div class="switch-alphabet">
+                    <a class="switcher" data-switch-alphabet="ru">
+                        <span class="lang-icon-ru disabled icon"></span>
+                    </a>
+                    <a class="switcher" data-switch-alphabet="en">
+                        <span class="lang-icon-en icon"></span>
+                    </a>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <!--<div class="alphabet-block white-block">
+                # а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ э ю я
+            </div>-->
+
             <div class="random-games complete-block">
                 <?
                 $paged = get_query_var('paged');

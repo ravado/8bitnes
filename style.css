@@ -22,6 +22,7 @@ a:hover {
     color: #28a2eb;
     border-bottom: 1px solid #e2f3fc;
 }
+.hidden {display: none;}
 .green-block {
     border-radius: 10px;
     border-width: 4px;
@@ -86,6 +87,14 @@ a:hover {
     border-image-slice: 4 fill;
     -webkit-border-image: url("img/block-white.png") 4 repeat;
     -o-border-image: url("img/block-white.png") 4 repeat;
+}
+.brown-block {
+    border-radius: 10px;
+    border: 4px solid transparent;
+    border-image: url("img/block-brown.png") 4 repeat;
+    border-image-slice: 4 fill;
+    -webkit-border-image: url("img/block-brown.png") 4 repeat;
+    -o-border-image: url("img/block-brown.png") 4 repeat;
 }
 .center-block {
     width: 1000px;
@@ -849,3 +858,71 @@ input.gsc-input {
     color: #f5f5f5;
     font-size: 12px;
 }
+
+.alphabet-block {
+    font-family: "Russo One";
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 15px;
+    min-height: 15px;
+}
+
+.alphabet-block a {
+    color: #aaa;
+    border-bottom: 0;
+    cursor: pointer;
+}
+.alphabet-block a:hover {
+    color: #1073AE;
+}
+ul.alphabet {
+    width: 700px;
+    height: 20px;
+    margin-top: 1px;
+    margin-left: 3px;
+    float: left;
+    text-align: justify;
+}
+ul.alphabet li {
+    /*display: inline;*/
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align:top;
+    text-align: center;
+    /*background: red;*/
+}
+li.helper {
+    width: 100%;
+    background: none;
+}
+
+.alphabet-block .switch-alphabet {
+    float: right;
+    width: 55px;
+    height: 20px;
+    margin-top: -1px;
+}
+
+.alphabet-block .switch-alphabet a {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: -1px;
+}
+
+.lang-icon-en {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: url("img/sprite.png") no-repeat;
+    background-position: -90px -21px;
+ }
+.lang-icon-ru {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: url("img/sprite.png") no-repeat;
+    background-position: -62px -21px;
+}
+
+.lang-icon-en.disabled {background-position: -90px -44px;}
+.lang-icon-ru.disabled { background-position: -62px -44px;}
