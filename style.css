@@ -501,6 +501,7 @@ a.btn-all-games:hover {
 }
 .game-item h3 a {
     display: block;
+    padding: 0 2px;
     text-decoration: none;
     color: #ffffff;
     border-bottom: none;

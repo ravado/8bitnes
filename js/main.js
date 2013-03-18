@@ -58,16 +58,16 @@ $(function(){
         generateNextPrev: false,
         animationStart: function(current){
             $('.caption').animate({bottom:-35},100);
-//            if (window.console && console.log) {
+//            if (window.console && //console.log) {
 //                // example return of current slide number
-//                console.log('animationStart on slide: ', current);
+//                //console.log('animationStart on slide: ', current);
 //            }
         },
         animationComplete: function(current){
             $('.caption').animate({bottom:0},200);
-//            if (window.console && console.log) {
+//            if (window.console && //console.log) {
 //                // example return of current slide number
-//                console.log('animationComplete on slide: ', current);
+//                //console.log('animationComplete on slide: ', current);
 //            }
         },
         slidesLoaded: function() {
@@ -102,7 +102,7 @@ $(document).ready(function() {
     // Перехват сабмита формы поиска
     $("#frm-search").submit(function() {
         if($(".search-input").val() == '') {
-            console.log('Пустое значение');
+            //console.log('Пустое значение');
             $(".search-input").focus();
             return false;
         } else {
@@ -115,7 +115,7 @@ $(document).ready(function() {
         VK.init({apiId: 3033594, onlyWidgets: true});
         VK.Widgets.Comments("vk_comments", {limit: 10, width: "791", attach: "*"});
     } catch(error) {
-        console.log('Не удалось подключить коменты ВК');
+        //console.log('Не удалось подключить коменты ВК');
     }
 
 
@@ -179,7 +179,7 @@ $(document).ready(function() {
             }, function(data) {
                 $('#raiting').css('cursor','default');
                 $("#raiting_info h5 .rating-value").html(data.rating);
-                console.log("votes " + data.votes_count);
+                //console.log("votes " + data.votes_count);
                 $("#raiting_info .votes-count").html(data.votes_count);
                 $('#raiting_votes').width(Math.ceil((data.rating*30)));
                 $('#raiting_votes').show();
@@ -198,29 +198,34 @@ $(document).ready(function() {
                 alreadyVoted.text('');
             });
         });
-        console.log('already voted');
+        //console.log('already voted');
     }
 
+
+    $(".switch-alphabet a").trigger('click', function() {
+        alert('s');
+    });
 
 
     // Нажатие на кнопку смены алфавита
     $(".switch-alphabet a").click(function() {
+        alert('s');
         var currentBtn = $(this), otherBtns = $(".switch-alphabet a").not(currentBtn);
            if (currentBtn.hasClass('switcher') && !currentBtn.hasClass('lock')) {
                var alphabetToSwitch, alphabetItem;
                alphabetToSwitch = currentBtn.attr("data-switch-alphabet");
-               console.log("Alphabet to switch is: " + alphabetToSwitch);
+               //console.log("Alphabet to switch is: " + alphabetToSwitch);
                alphabetItem = $("ul[data-alphabet='" + alphabetToSwitch + "']");
-               console.log("Finded " + alphabetItem.length + " alphabet items to switch");
+               //console.log("Finded " + alphabetItem.length + " alphabet items to switch");
                otherBtns.addClass('lock');
-               console.log("lock buttons");
+               //console.log("lock buttons");
 
                $(".alphabet").not(alphabetItem).fadeOut(100, 'swing', function() {
-                   console.log('fade outed');
+                   //console.log('fade outed');
                    alphabetItem.fadeIn(100, 'swing', function() {
-                       console.log('fade inned');
+                       //console.log('fade inned');
                        otherBtns.removeClass('lock');
-                       console.log("unlock buttons");
+                       //console.log("unlock buttons");
                    });
                });
 

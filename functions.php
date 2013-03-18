@@ -4,8 +4,8 @@
     add_theme_support( 'post-formats', array( 'image', 'games' ) );
 
     // Добавление екшенов для работы аякс запроса
-    add_action('wp_ajax_change_rating', 'change_post_rating');
-    // add_action('wp_ajax_nopriv_change_rating', 'change_post_rating'); не помню зачем нужно, может и не актуально
+    add_action('wp_ajax_change_rating', 'change_post_rating'); // только для залогиненых пользователей
+    add_action('wp_ajax_nopriv_change_rating', 'change_post_rating'); // если не важно залогинен пользователь или нет
     // Изменение результатов голосования администратором
     add_action('wp_ajax_change_voting_result', 'change_voting_result');
 
