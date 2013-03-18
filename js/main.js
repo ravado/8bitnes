@@ -201,15 +201,8 @@ $(document).ready(function() {
         //console.log('already voted');
     }
 
-
-    $(".switch-alphabet a").trigger('click', function() {
-        alert('s');
-    });
-
-
     // Нажатие на кнопку смены алфавита
     $(".switch-alphabet a").click(function() {
-        alert('s');
         var currentBtn = $(this), otherBtns = $(".switch-alphabet a").not(currentBtn);
            if (currentBtn.hasClass('switcher') && !currentBtn.hasClass('lock')) {
                var alphabetToSwitch, alphabetItem;

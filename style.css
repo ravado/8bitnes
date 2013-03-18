@@ -306,16 +306,16 @@ a.btn-all-games:hover {
 
 }
 #main-menu ul div.submenu-content {
-    border-width: 4px;
-    border-image-source: url("img/block-white.png");
-    border-image-slice: 4 fill;
-    border-width: 4px;
-    position: relative;
-    z-index: 0;
+    /*border-width: 4px;*/
+    /*border-image-source: url("img/block-white.png");*/
+    /*border-image-slice: 4 fill;*/
+    /*border-width: 4px;*/
+    /*position: relative;*/
+    /*z-index: 0;*/
     margin-top: -2px;
-    -moz-border-image: url("img/block-white.png") 4 repeat;
-    -webkit-border-image: url("img/block-white.png") 4 repeat;
-    -o-border-image: url("img/block-white.png") 4 repeat;
+    /*-moz-border-image: url("img/block-white.png") 4 repeat;*/
+    /*-webkit-border-image: url("img/block-white.png") 4 repeat;*/
+    /*-o-border-image: url("img/block-white.png") 4 repeat;*/
 }
 #main-menu ul div.menu-triangle {
     z-index: 1;
@@ -824,7 +824,7 @@ input.gsc-input {
     cursor: pointer;
 }
 .slide-next:active, .slide-prev:active {
-    opacity: 1;
+    opacity: 0.8;
     cursor: pointer;
 }
 

@@ -25,6 +25,11 @@ a {
     padding: 2px;
 }
 
+.gameDownload a {
+    border: 2px solid #563518;
+    background: #37791d;
+}
+
 .search-bar fieldset {
     background: #e7e7e7;
     border: 2px solid #333;

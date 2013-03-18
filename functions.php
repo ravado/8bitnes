@@ -47,7 +47,7 @@
     class mainMenuWalker extends Walker_Nav_Menu {
         function start_lvl(&$output, $depth) {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<ul class=\"sub-menu\"><div class='menu-triangle'></div><div class='submenu-content'>\n";
+            $output .= "\n$indent<ul class=\"sub-menu\"><div class='menu-triangle'></div><div class='white-block submenu-content'>\n";
         }
         function end_lvl(&$output, $depth) {
             $indent = str_repeat("\t", $depth);
