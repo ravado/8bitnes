@@ -1,6 +1,4 @@
 </div><!-- main-container -->
-
-
 <div id="footer">
     <div id="fixed-footer">
         <div class="content"></div>
@@ -9,8 +7,10 @@
             <div class="trademark">Emulroom © 2012 Денди игры и эмуляторы</div>
         </div>
     </div>
-</div>
-<!-- close footer -->
+</div><!-- close footer -->
+
+<!-- audio player -->
+
 
 <!-- Yandex.Metrika counter -->
 <!--<script type="text/javascript">

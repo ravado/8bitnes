@@ -27,6 +27,23 @@ function some() {
     });
     $(".gsc-orderby-label").text('Сортировать по:');
 }
+
+// инициация функции после отработки конструктора audiojs
+function initTitles() {setTimeout(placeTitles, 1000);}
+
+// подгружаем значение в тегах audio в специальное место для вывода пользователю название трека
+function placeTitles() {
+    var audioBlock = $(".audiojs");
+//    alert(audioBlock.length);
+    audioBlock.each(function(index, el) {
+        var title, titlePlace;
+        title = $(el).find('audio').text();
+        titlePlace = $(el).find('.title');
+        titlePlace.text(title);
+        //alert(title);
+    });
+}
+
 /*// Поиск
 google.load('search', '1', {language : 'ru', style : google.loader.themes.V2_DEFAULT});
 google.setOnLoadCallback(function() {
@@ -91,6 +108,21 @@ function fuckOffTarget() {
 
 $(document).ready(function() {
 
+
+    // нажатие на кнопку 'play' аудиоплеера
+    // для отслеживани и запрета игры сразу нескольких потоков
+    $('body').on('click', '.play-pause', function(){
+        var audioBlock, thisIndex = $(this).parents('.audiojs').index('.audiojs');
+        $.each(aujs, function(index,val){
+            if ( index != thisIndex && aujs[index].playing ) {
+                aujs[index].pause();
+            }
+        });
+        // скрываем все часы, а затем показываем только текущие
+        audioBlock = $(this).closest('.audiojs');
+        $('.time').css('display','none');
+        audioBlock.find('.time').css('display','block');
+    });
 
 
     $("input.search-input").live('keyup',function(e) {

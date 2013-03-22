@@ -19,6 +19,12 @@
 <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.cookies.js"></script>        
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/slides.js"></script>
+        <script src="<?=get_template_directory_uri()?>/plugins/audiojs/audio.js"></script>
+        <script>
+            audiojs.events.ready(function() {
+                aujs = audiojs.createAll(settings = {css:''}, initTitles());
+            });
+        </script>
 <script type="text/javascript" src="<?= $theme_dir; ?>/js/main.js"></script>
 
 <!--<script type="text/javascript">
@@ -40,8 +46,8 @@
                 document.getElementsByTagName('head')[0].appendChild(script);
             })();
         </script><noscript><a href="http://reformal.ru"><img src="http://media.reformal.ru/reformal.png" /></a><a href="http://emulroom.reformal.ru">Oтзывы и предложения для Emulroom</a></noscript>-->
-
         <?php wp_head(); ?>
+
     </head>
 <body>
     <div id="main-container">

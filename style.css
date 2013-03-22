@@ -22,7 +22,8 @@ a:hover {
     color: #28a2eb;
     border-bottom: 1px solid #e2f3fc;
 }
-.hidden {display: none;}
+.hidden {display: none}
+.show-block {display: block}
 .green-block {
     border-radius: 10px;
     border-width: 4px;
@@ -934,3 +935,133 @@ li.helper {
 
 .lang-icon-en.disabled {background-position: -90px -44px;}
 .lang-icon-ru.disabled { background-position: -62px -44px;}
+
+
+
+/* ::::::::::::::::::::: Аудио Плеер :::::::::::::::::::::: */
+.audiojs audio { position: absolute; left: -1px; }
+.audiojs {
+    width: 560px;
+    /*height: 36px;*/
+    background: #ffffff;
+    overflow: hidden;
+    font-family: monospace;
+    font-size: 12px;
+    /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #444), color-stop(0.5, #555), color-stop(0.51, #444), color-stop(1, #444));*/
+    /*background-image: -moz-linear-gradient(center top, #444 0%, #555 50%, #444 51%, #444 100%);*/
+    /*-webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);*/
+    /*-o-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);*/
+}
+.audiojs .play-pause {
+    width: 30px;
+    height: 30px;
+    /*padding: 4px 6px;*/
+    margin: 0px;
+    float: left;
+    overflow: hidden;
+    /*border-right: 1px solid #000;*/
+}
+.audiojs p {
+    display: none;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    cursor: pointer;
+}
+.audiojs .play { display: block; }
+.audiojs .scrubber {
+    position: relative;
+    float: left;
+    width: 280px;
+    background: #ffffff;
+    height: 30px;
+    margin: 0 5px 0 5px;
+    border-left: 0px;
+    border-bottom: 0px;
+    overflow: hidden;
+}
+.audiojs .progress {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    height: 15px;
+    width: 0px;
+    background: #30bbff;
+    z-index: 1;
+    /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ccc), color-stop(0.5, #ddd), color-stop(0.51, #ccc), color-stop(1, #ccc));*/
+    /*background-image: -moz-linear-gradient(center top, #ccc 0%, #ddd 50%, #ccc 51%, #ccc 100%);*/
+}
+.audiojs .title {
+    position: absolute;
+    padding: 2px;
+    color: #4e4e4e;
+    z-index: 2;
+    font-size: 11px;
+}
+.audiojs .loaded {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    height: 3px;
+    width: 0px;
+    background: #8bcb2f;
+    /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #222), color-stop(0.5, #333), color-stop(0.51, #222), color-stop(1, #222));*/
+    /*background-image: -moz-linear-gradient(center top, #222 0%, #333 50%, #222 51%, #222 100%);*/
+}
+.audiojs .time {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 0 0 6px;
+    padding: 0 6px 0 12px;
+    /*border-left: 1px solid #000;*/
+    display: none;
+    color: #aaa;
+    /*text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);*/
+}
+.audiojs .time em {
+    padding: 0 2px 0 0;
+    color: #555;
+    font-style: normal;
+}
+.audiojs .time strong {
+    padding: 0px 0px 0px 2px;
+    font-weight: normal;
+}
+.audiojs .error-message {
+    float: left;
+    display: none;
+    margin: 0px 10px;
+    height: 30px;
+    width: 400px;
+    overflow: hidden;
+    line-height: 30px;
+    white-space: nowrap;
+    color: #8b0000;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -icab-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+}
+.audiojs .error-message a {
+    color: #eee;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #999;
+    white-space: wrap;
+}
+.audiojs .play { background: url("img/play.png") -5px 0 no-repeat; }
+.audiojs .loading { background: url("img/load.gif") 5px 10px no-repeat; }
+.audiojs .error { background: url("img/error.png")  -1px 0 no-repeat; background-size: 28px; }
+.audiojs .pause { background: url("img/stop.png") -5px 0 no-repeat; }
+.playing .play, .playing .loading, .playing .error { display: none; }
+.playing .pause { display: block; }
+.loading .play, .loading .pause, .loading .error { display: none; }
+.loading .loading { display: block; }
+.error .time, .error .play, .error .pause, .error .scrubber, .error .loading { display: none; }
+.error .error { display: block; }
+.error .play-pause p { cursor: auto; }
+.error .error-message { display: block; }
+/* ^^^^^^^^^^^^^^^^^^^^^ Аудио Плеер ^^^^^^^^^^^^^^^^^^^^^^ */
