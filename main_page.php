@@ -15,7 +15,7 @@
                                 <div
                                         class="slide"><a href="<? echo
                                 get_permalink($top_game->ID); ?>" title="<? echo $top_game->post_title; ?>">
-                                    <img src="<? contentPart('url', $top_game->post_content) ?>" width="700"
+                                    <img src="<? contentPart('thumb', $top_game->post_content) ?>" width="700"
                                          height="380" alt="<? contentPart('alt', $top_game->post_content); ?>">
                                 </a>
 
