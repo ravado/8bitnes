@@ -21,6 +21,8 @@
             <? else: echo 'К сожалению запрошеных записей не обнаружено'; ?>
             <? endif; ?>
 
+            <? if(!is_page( 'advert' )):?>
+
             <div class="random-games complete-block">
                 <header class="blue-head-block">Случайные игры</header>
                 <div class="block-content">
@@ -76,6 +78,7 @@
                 </div>
             </div>
             <div class="clear-both"></div>
+        <?endif;?>
         </div>
         <div class="clear-both"></div>
     </div>
