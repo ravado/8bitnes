@@ -44,7 +44,30 @@ function placeTitles() {
     });
 }
 
-/*// Поиск
+// Добавление на страницу емулятора с загруженой игрой
+function renderEmulator(zip_game_url) {
+    var game = zip_game_url.substring(0, zip_game_url.length - 3) + 'nes';
+    console.log('game ' + game);
+    $(".gameDownload").after(
+        '<div id="emulator-box">' +
+            '<div class="emulator">' +
+            '<applet archive="/wp-content/resources/vNES_211.jar" code="vNES.class" width="520" height="475">' +
+            '<param name="rom" value="/' + game + '" />' +
+            '<param name="sound" value="on" />' +
+            '<param name="scanlines" value="off" />' +
+            '<param name="scale" value="on" />' +
+            '<param name="fps" value="on" />' +
+            '</applet>' +
+            '</div>' +
+            '<div class="emulator-how-to">' +
+            '<img src="/wp-content/themes/8bitnes/img/emulator-tutorial.png">' +
+            '</div>' +
+            '</div>' +
+            '<div style="clear: both"></div>');
+}
+
+
+// Поиск
 google.load('search', '1', {language : 'ru', style : google.loader.themes.V2_DEFAULT});
 google.setOnLoadCallback(function() {
     var customSearchOptions = {};
@@ -60,7 +83,7 @@ google.setOnLoadCallback(function() {
     customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
     customSearchControl.draw('search-box');
     timer_id = setInterval('some()', 10);
-}, true);*/
+}, true);
 
 
 
@@ -156,7 +179,7 @@ $(document).ready(function() {
     });
 
     $(".search-input").focus(function(){
-       $(this).animate({width:150},200).css('opacity','1');
+        $(this).animate({width:150},200).css('opacity','1');
         $(this).parent().animate({width:185},200).css('opacity','1');
     });
     $(".search-input").focusout(function(){
@@ -236,27 +259,35 @@ $(document).ready(function() {
     // Нажатие на кнопку смены алфавита
     $(".switch-alphabet a").click(function() {
         var currentBtn = $(this), otherBtns = $(".switch-alphabet a").not(currentBtn);
-           if (currentBtn.hasClass('switcher') && !currentBtn.hasClass('lock')) {
-               var alphabetToSwitch, alphabetItem;
-               alphabetToSwitch = currentBtn.attr("data-switch-alphabet");
-               //console.log("Alphabet to switch is: " + alphabetToSwitch);
-               alphabetItem = $("ul[data-alphabet='" + alphabetToSwitch + "']");
-               //console.log("Finded " + alphabetItem.length + " alphabet items to switch");
-               otherBtns.addClass('lock');
-               //console.log("lock buttons");
+        if (currentBtn.hasClass('switcher') && !currentBtn.hasClass('lock')) {
+            var alphabetToSwitch, alphabetItem;
+            alphabetToSwitch = currentBtn.attr("data-switch-alphabet");
+            //console.log("Alphabet to switch is: " + alphabetToSwitch);
+            alphabetItem = $("ul[data-alphabet='" + alphabetToSwitch + "']");
+            //console.log("Finded " + alphabetItem.length + " alphabet items to switch");
+            otherBtns.addClass('lock');
+            //console.log("lock buttons");
 
-               $(".alphabet").not(alphabetItem).fadeOut(100, 'swing', function() {
-                   //console.log('fade outed');
-                   alphabetItem.fadeIn(100, 'swing', function() {
-                       //console.log('fade inned');
-                       otherBtns.removeClass('lock');
-                       //console.log("unlock buttons");
-                   });
-               });
+            $(".alphabet").not(alphabetItem).fadeOut(100, 'swing', function() {
+                //console.log('fade outed');
+                alphabetItem.fadeIn(100, 'swing', function() {
+                    //console.log('fade inned');
+                    otherBtns.removeClass('lock');
+                    //console.log("unlock buttons");
+                });
+            });
 
-               currentBtn.find(".icon").removeClass('disabled');
-               otherBtns.find(".icon").addClass('disabled');
-           }
+            currentBtn.find(".icon").removeClass('disabled');
+            otherBtns.find(".icon").addClass('disabled');
+        }
+    });
+
+
+    // нажатие на кнопку "Играть в игру"
+    $('.btn-play-game').click(function() {
+        var game_url = $('.icon-download').attr('href');
+        console.log('try to render emulator');
+        renderEmulator(game_url);
     });
 
 
