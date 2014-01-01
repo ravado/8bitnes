@@ -285,9 +285,13 @@ $(document).ready(function() {
 
     // нажатие на кнопку "Играть в игру"
     $('.btn-play-game').click(function() {
-        var game_url = $('.icon-download').attr('href');
-        console.log('try to render emulator');
-        renderEmulator(game_url);
+        var game_url = $('.icon-download').attr('href'),
+            emulator = $('#emulator-box');
+
+        if(emulator.length == 0) {
+            console.log('try to render emulator');
+            renderEmulator(game_url);
+        }
     });
 
 
