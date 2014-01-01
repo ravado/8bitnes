@@ -7,6 +7,9 @@
         </section>
         <section id="main-content">
             <? get_template_part('alphabet') ?>
+
+            <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Top Post Banner')); ?>
+
             <div class="complete-block">
                 <div class="blue-head-block">
                     <?php if ( is_day() ) : ?>
@@ -20,6 +23,9 @@
                     <? else: echo 'Архив';?>
                     <? endif; ?>
                 </div>
+
+
+
                 <div class="block-content">
                     <? if(have_posts()): ?>
                         <? while (have_posts()) : the_post(); ?>

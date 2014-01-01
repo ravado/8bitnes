@@ -1085,3 +1085,18 @@ li.helper {
 .error .play-pause p { cursor: auto; }
 .error .error-message { display: block; }
 /* ^^^^^^^^^^^^^^^^^^^^^ Аудио Плеер ^^^^^^^^^^^^^^^^^^^^^^ */
+
+
+/* блок с виджетами */
+.widget-block {
+    padding: 5px;
+    border: 2px solid #000000;
+    background-color: white;
+}
+
+.widget-block-top {
+    margin: 10px 0 10px 0;
+}
+.widget-block-middle {
+    margin: 10px 0 20px 0;
+}

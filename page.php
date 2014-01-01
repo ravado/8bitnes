@@ -23,6 +23,8 @@
 
             <? if(!is_page( 'advert' )):?>
 
+                <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Middle Post Banner')); ?>
+
             <div class="random-games complete-block">
                 <header class="blue-head-block">Случайные игры</header>
                 <div class="block-content">
@@ -31,7 +33,7 @@
                         'post_status' => 'publish',
                         'order' => 'DESC',
                         'orderby' => 'rand',
-                        'posts_per_page' => 4,
+                        'posts_per_page' => 8,
                         'tag' => 'dendy-games',
                         'tax_query' => array(
                             array(

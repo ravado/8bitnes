@@ -6,7 +6,11 @@
             <? get_sidebar(); ?>
         </section>
         <section id="main-content">
+
             <? get_template_part('alphabet') ?>
+
+            <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Top Post Banner')); ?>
+
             <div class="random-games complete-block">
                 <?
                 $paged = get_query_var('paged');

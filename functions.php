@@ -66,13 +66,35 @@ function register_nav_menus_on_init() {
 
 // Регистрируем наш сайдбар для возможности добавления виджетов из админки
 if ( function_exists ('register_sidebar') ) {
-    register_sidebar (array (
-        'name' => 'Левая боковая колонка',
-        'before_widget' => '<div class="complete-block">',
-        'after_widget' => '</nav></div></div>',
-        'before_title' => '<header class="blue-head-block">',
-        'after_title' => '</header><div class="block-content "><nav class="sidebar-menu">',
-    ));
+    register_sidebar (array
+        (
+            'name' => 'Левая боковая колонка',
+            'before_widget' => '<div class="complete-block">',
+            'after_widget' => '</nav></div></div>',
+            'before_title' => '<header class="blue-head-block">',
+            'after_title' => '</header><div class="block-content "><nav class="sidebar-menu">',
+        )
+    );
+
+    register_sidebar (array
+        (
+            'name' => 'Top Post Banner',
+            'before_widget' => '<div class="widget-block widget-block-top">',
+            'after_widget' => '</div>',
+            'before_title' => '',
+            'after_title' => '',
+        )
+    );
+
+    register_sidebar (array
+        (
+            'name' => 'Middle Post Banner',
+            'before_widget' => '<div class="widget-block widget-block-middle">',
+            'after_widget' => '</div>',
+            'before_title' => '',
+            'after_title' => '',
+        )
+    );
 }
 
 // Проверка существует ли файл по заданому URL (довольно длиельная операция)
