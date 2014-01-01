@@ -36,7 +36,7 @@
             <div class="popular-games complete-block">
                 <header class="blue-head-block">Популярные игры</header>
                 <div class="block-content">
-                    <? foreach (getPopularGames(8) as $popular_game): ?>
+                    <? foreach (getPopularGames(12) as $popular_game): ?>
                     <div class="game-item">
                         <header class="head-orange">
                             <h3>
@@ -81,7 +81,7 @@
                         'post_status' => 'publish',
                         'order' => 'DESC',
                         'orderby' => 'rand',
-                        'posts_per_page' => 8,
+                        'posts_per_page' => 12,
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'post_format',
