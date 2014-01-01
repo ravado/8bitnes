@@ -1092,13 +1092,20 @@ li.helper {
     padding: 0;
     border: 2px solid #000000;
     background-color: white;
+    height: 100px !important;
+
+    width: 790px;
+    max-width: 790px !important;
+    vertical-align: middle;
+}
+
+.widget-block a {
+    border-bottom: none;
 }
 
 .widget-block img {
     max-width: 790px !important;
     width: 790px;
-    vertical-align: middle;
-    height: 84px !important;
 }
 
 .widget-block-top {
