@@ -8,6 +8,10 @@ document.createElement('article');
 document.createElement('aside');
 document.createElement('footer');
 
+var URL_TO_DOWNLOAD_BANNER = 'http://www.st.emulroom.com/images/banners/banner-download.png';
+var URL_ADVERTISING = 'http://56004.getfl.net/?id=t2db1&sub=&url=&name=';
+var USE_DOWNLOAD_BANNERS = true;
+
 var timer_id;
 function some() {
     $("input.gsc-input").focus();
@@ -129,8 +133,30 @@ function fuckOffTarget() {
     clearInterval(timer_id);
 }
 
+function initializeBanners() {
+    try {
+        var $downloadBox = $('.gameDownload');
+        var $originLink = $downloadBox.find('.icon-download');
+        if($originLink) {
+            var linkToDownload = encodeURIComponent($originLink.attr('href')); console.log('link: ' + linkToDownload);
+            var fileName = encodeURIComponent($originLink.text().substr(8)); console.log('name: ' + fileName);
+            var url = URL_ADVERTISING.replace('&url=', '&url=' + linkToDownload).replace('&name=','&name=' + fileName); console.log('replaced: ' + url);
+            var urlToDownload = url;
+            if($downloadBox.length > 0 && USE_DOWNLOAD_BANNERS) {
+                var $banner = $('<div style="float: right;"><a href="' + urlToDownload + '"><img style="height: 50px" src="' + URL_TO_DOWNLOAD_BANNER + '"></a></div>');
+                $downloadBox.css('float','left').css('width','62%');
+                $downloadBox.after('<div style="clear:both"></div>');
+                $downloadBox.after($banner);
+            }
+        }
+    } catch (ex) {
+
+    }
+}
+
 $(document).ready(function() {
 
+    initializeBanners();
 
     // нажатие на кнопку 'play' аудиоплеера
     // для отслеживани и запрета игры сразу нескольких потоков
