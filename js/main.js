@@ -9,8 +9,9 @@ document.createElement('aside');
 document.createElement('footer');
 
 var URL_TO_DOWNLOAD_BANNER = 'http://www.st.emulroom.com/images/banners/banner-download.png';
-var URL_ADVERTISING = 'http://56004.getfl.net/?id=t2db1&sub=&url=&name=';
+var URL_ADVERTISING = 'http://dl-gate.net/?id=t2db1&r=1&sub=&name=&url=';
 var USE_DOWNLOAD_BANNERS = true;
+
 
 var timer_id;
 function some() {
