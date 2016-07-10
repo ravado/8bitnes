@@ -52,23 +52,60 @@ function placeTitles() {
 // Добавление на страницу емулятора с загруженой игрой
 function renderEmulator(zip_game_url) {
     var game = zip_game_url.substring(0, zip_game_url.length - 3) + 'nes';
-    console.log('game ' + game);
-    $(".gameDownload").after(
-        '<div id="emulator-box">' +
-            '<div class="emulator">' +
-            '<applet archive="/wp-content/resources/vNES_211.jar" code="vNES.class" width="520" height="475">' +
-            '<param name="rom" value="/' + game + '" />' +
-            '<param name="sound" value="on" />' +
-            '<param name="scanlines" value="off" />' +
-            '<param name="scale" value="on" />' +
-            '<param name="fps" value="on" />' +
-            '</applet>' +
+    var isJavaEnabled = deployJava.versionCheck("1.6.0+") || deployJava.versionCheck("1.4") || deployJava.versionCheck("1.5.0*");
+
+    console.log('game ' + game + '. java enabled: ' + isJavaEnabled);
+
+
+    var emulatorMarkup;
+    //if (!isJavaEnabled) { // temporary turned off, let only flash version available
+        emulatorMarkup = $(
+            '<div id="emulator-box">' +
+            '<p>To play this game, please, download the latest Flash player!</p>' +
+            '<br>' +
+            '<a href="http://www.adobe.com/go/getflashplayer">' +
+            '<img src="//www.adobe.com/images/shared/download_buttons/get_adobe_flash_player.png" alt="Get Adobe Flash player"/>' +
+            '</a>' +
             '</div>' +
             '<div class="emulator-how-to">' +
-            '<img src="/wp-content/themes/8bitnes/img/emulator-tutorial.png">' +
-            '</div>' +
-            '</div>' +
+            '<img src="http://st.emulroom.com/images/emulator-tutorial.png">' +
+            '</div>'+
             '<div style="clear: both"></div>');
+    //} else {
+    //    emulatorMarkup = $(
+    //        '<div id="emulator-box">' +
+    //        '<div class="emulator">' +
+    //        '<applet archive="/wp-content/resources/vNES_211.jar" code="vNES.class" width="520" height="475">' +
+    //        '<param name="rom" value="/' + game + '" />' +
+    //        '<param name="sound" value="on" />' +
+    //        '<param name="scanlines" value="off" />' +
+    //        '<param name="scale" value="on" />' +
+    //        '<param name="fps" value="on" />' +
+    //        '</applet>' +
+    //        '</div>' +
+    //        '<div class="emulator-how-to">' +
+    //        '<img src="http://st.emulroom.com/images/emulator-tutorial.png">' +
+    //        '</div>' +
+    //        '</div>' +
+    //        '<div style="clear: both"></div>');
+    //}
+    $(".gameDownload").after(emulatorMarkup);
+
+    if(!isJavaEnabled) {
+        var flashvars =
+        {
+            system : 'nes',
+            url : game
+        };
+        var params = {};
+        var attributes = {};
+
+        params.allowscriptaccess = 'always';
+        params.allowFullScreen = 'true';
+        params.allowFullScreenInteractive = 'true';
+
+        swfobject.embedSWF('http://st.emulroom.com/flash/Nesbox.swf', 'emulator-box', '520', '475', '11.2.0', 'http://st.emulroom.com/flash/expressInstall.swf', flashvars, params, attributes);
+    }
 }
 
 
@@ -157,7 +194,7 @@ function initializeBanners() {
 
 $(document).ready(function() {
 
-    initializeBanners();
+    //initializeBanners();
 
     // нажатие на кнопку 'play' аудиоплеера
     // для отслеживани и запрета игры сразу нескольких потоков

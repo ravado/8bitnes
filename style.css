@@ -1114,3 +1114,16 @@ li.helper {
 .widget-block-middle {
     margin: 10px 0 20px 0;
 }
+
+
+/* emulator */
+#emulator-box {
+    width: 520px;
+    height:475px;
+    float: left;
+}
+
+.emulator-how-to {
+    width: 100px;
+    float: left;
+}

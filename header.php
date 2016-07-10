@@ -4,6 +4,7 @@
         <?php $theme_dir = get_template_directory_uri();?>
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="viewport" content="width=device-width" />
+        <meta name='yandex-verification' content='474c0ff9e031c247' />
         <title><?php bloginfo( 'name' ); ?><?php wp_title(); ?></title>
         <link href='http://fonts.googleapis.com/css?family=Russo+One|Press+Start+2P|Play&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
@@ -20,6 +21,8 @@
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/jquery.cookies.js"></script>        
         <script type="text/javascript" src="<?= $theme_dir; ?>/js/slides.js"></script>
         <script src="<?=get_template_directory_uri()?>/plugins/audiojs/audio.js"></script>
+        <script src="<?=get_template_directory_uri()?>/plugins/swf/swfobject.js"></script>
+        <script src="<?=get_template_directory_uri()?>/plugins/java/deployJava.js"></script>
         <script>
             audiojs.events.ready(function() {
                 aujs = audiojs.createAll(settings = {css:''}, initTitles());
