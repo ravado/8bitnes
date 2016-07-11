@@ -108,6 +108,7 @@ a:hover {
 #main-container {
     position: relative;
     min-height: 100%;
+    min-width: 1000px;
     height: auto !important;
     height: 100%;
     color: #646464;
@@ -216,6 +217,7 @@ a:hover {
     clear: both;
     float: left;
     width: 100%;
+    min-width: 1000px;
     background-image: url("img/footer.png");
 }
 #fixed-footer {

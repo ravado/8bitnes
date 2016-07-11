@@ -3,7 +3,7 @@
     <div id="fixed-footer">
         <div class="content"></div>
         <div class="site-info">
-            <div class="developers">Сайт разработан в <a href="http://kubeex.com">"Студии правильных решений"</a></div>
+<!--            <div class="developers">Сайт разработан в <a href="http://kubeex.com">"Студии правильных решений"</a></div>-->
             <div class="trademark">Emulroom © 2012 Денди игры и эмуляторы</div>
         </div>
     </div>
@@ -32,6 +32,16 @@
             d.addEventListener("DOMContentLoaded", f);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-23233780-1', 'auto');
+    ga('send', 'pageview');
+
 </script>
 <noscript><div><img src="//mc.yandex.ru/watch/12957706" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->

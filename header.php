@@ -64,7 +64,7 @@
 <!--                        <a href><img src="--><?//= $theme_dir; ?><!--/img/social/facebook.png"></a>-->
 <!--                        <a href><img src="--><?//= $theme_dir; ?><!--/img/social/twitter.png"></a>-->
 <!--                        <a href><img src="--><?//= $theme_dir; ?><!--/img/social/google.png"></a>-->
-                        <a href="/rss" title="Подписаться на обновления"><img src="<?= $theme_dir; ?>/img/social/rss.png" alt="подписаться на обновления"></a>
+<!--                        <a href="/rss" title="Подписаться на обновления"><img src="--><?//= $theme_dir; ?><!--/img/social/rss.png" alt="подписаться на обновления"></a>-->
                     </div>
                 </div>
             </div>
